@@ -4,6 +4,24 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 1 — Header banner (2026-10-18)
+
+**Decided:** Option A — Classic White Bar.
+
+White header bar, logo + "ONE STOP / Construction & Leveling" lockup on the left, full nav links (House Leveling, House Lifting, Foundation Repair, Gallery, About, Contact), red pill phone-number CTA on the right. Previews: `design-previews/step-1-header-banner/option-a-classic-white.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-1-header-banner/`):
+- A — Classic White Bar: clean, familiar, nav fully visible on desktop, red CTA passes AA on white. *Chosen.*
+- B — Bold Black Bar: matches the logo's own black-square badge directly, more premium tone, but red-on-black text only passes AA at large/bold sizes.
+- C — Two-Tier Utility + Nav Bar: trust signals (free estimate, hours) above the main bar, but overlaps with the dedicated trust-signals section planned later (decision #8) and costs more mobile vertical space.
+- D — Minimal Floating Overlay: logo-only transparent header over a hero photo, most modern, but hides phone/nav behind icons — judged too risky for a stressed-homeowner audience scanning fast on a phone.
+
+**Why:** Clarity and immediate scannability for homeowners (often on mobile, often stressed about visible home damage) outweighed the bolder branding of Option B or the extra trust messaging of Option C. Mobile nav collapse behavior and final typography/spacing still need to be built out — this decision fixes the *structure and tone* of the bar, not final pixel-level styling.
+
+**Assets produced:** `assets/derived/logo-circle-transparent.png` (circle-cropped, transparent outside the disc, metadata stripped) and `assets/derived/logo-square-black.png` (full badge, metadata stripped) — both derived from `logo/Onestop Logo.png`, original untouched. Logo PNG confirmed to carry no EXIF data (consistent with Step 0 findings).
+
+---
+
 ## Step 0 — Logo & photo analysis (2026-10-17)
 
 Not a design decision — a findings/intake record. See full report delivered in conversation. Summary below.
