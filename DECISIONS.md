@@ -4,6 +4,43 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 2 — Color palette (2026-10-18)
+
+**Decided:** Option 3 — Steel Blue-Gray Secondary.
+
+Core brand colors stay black `#020202` / white `#FDFDFD` / red `#E7030A` (red reserved for primary CTAs and key accents). Adds one new hue, a muted steel blue-gray, for secondary buttons, icons, and section backgrounds. Preview: `design-previews/step-2-color-palette/option-3-steel-blue-gray.html`.
+
+**Palette tokens:**
+| Token | Hex |
+|---|---|
+| white | `#FDFDFD` |
+| steel-50 | `#F4F6F8` |
+| steel-200 | `#C9D1D9` |
+| steel-400 | `#7E8C9A` |
+| steel-500 | `#5C6B7A` |
+| steel-600 | `#47535F` |
+| steel-700 | `#363F48` |
+| steel-800 | `#262C33` |
+| steel-900 | `#171B1F` |
+| red (brand) | `#E7030A` |
+| red hover | `#C40208` |
+
+**Contrast checks (computed WCAG 2.1 ratios):**
+- steel-700 body text on white: 10.53:1 (AA/AAA pass)
+- steel-600 text/buttons on white, and white on steel-600: 7.73:1 (AA/AAA pass)
+- white on red (primary CTA): 4.68:1 (AA pass — keep CTA text bold/≥16px)
+- steel-900 headings on white: 15+:1 (AAA pass)
+
+**Options considered** (all four previews kept in `design-previews/step-2-color-palette/`):
+- 1 — Pure Monochrome + Red Accent: true neutral grays, red as the only hue. Cleanest/most consistent with the logo, but can read cold/corporate.
+- 2 — Warm Construction Neutrals: same core with grays shifted warm (tan/stone). More grounded/approachable, but more prone to looking muddy if not tuned well.
+- 3 — Steel Blue-Gray Secondary: adds the steel blue-gray secondary hue. *Chosen.*
+- 4 — High-Contrast Red-Forward: red used for full section backgrounds (red-900), not just CTAs. Most distinctive, but riskiest if overused and doesn't actually reduce the palette's complexity.
+
+**Why:** Steel blue-gray gives the site a second usable color for hierarchy (secondary buttons, icons, backgrounds) without diluting red's role as the one color that means "act now" — and the blue-gray tone reads as stable/structural, which fits foundation and leveling work. It's the only option that adds a hue not literally extracted from the logo, so it needs its own contrast verification (done above) and should be used deliberately, not as a red substitute.
+
+---
+
 ## Step 1 — Header banner (2026-10-18)
 
 **Decided:** Option A — Classic White Bar.
