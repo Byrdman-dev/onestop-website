@@ -20,6 +20,8 @@ White header bar, logo + "ONE STOP / Construction & Leveling" lockup on the left
 
 **Assets produced:** `assets/derived/logo-circle-transparent.png` (circle-cropped, transparent outside the disc, metadata stripped) and `assets/derived/logo-square-black.png` (full badge, metadata stripped) — both derived from `logo/Onestop Logo.png`, original untouched. Logo PNG confirmed to carry no EXIF data (consistent with Step 0 findings).
 
+**Revision (same day):** Davis asked to drop the circular badge entirely and instead place just the black roofline graphic above the "ONE STOP" wordmark. Extracted `assets/derived/logo-roofline.png` — the roofline stroke only, cropped from the original logo and keyed to transparent (white background removed, black stroke kept), no circle/square framing. `option-a-classic-white.html` updated to this treatment; it's now the current state of the chosen header.
+
 ---
 
 ## Step 0 — Logo & photo analysis (2026-10-17)
