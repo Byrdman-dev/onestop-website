@@ -4,6 +4,22 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 4 — Overall style & mood (2026-10-20)
+
+**Decided:** Option 1 — Sharp & Structural.
+
+Square/near-square corners (rounded-sm at most — buttons included), thin 1px borders used for depth/separation instead of drop shadows, tight precise spacing, straight section dividers (hairline borders, not curves/angles). Preview: `design-previews/step-4-style-mood/option-1-sharp-structural.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-4-style-mood/`):
+- 1 — Sharp & Structural: square corners, borders not shadows, tight spacing. Technical/engineered feel, fastest/simplest to build consistently. *Chosen.*
+- 2 — Soft & Approachable: rounded corners, soft shadows, generous whitespace. Calm and reassuring, pairs naturally with the serif headings, but undersells structural seriousness a bit.
+- 3 — Bold Editorial: oversized headlines, full-bleed photography, almost no UI chrome. Most striking and puts before/after photos front and center, but hardest to build/keep consistent and least scannable for quick facts.
+- 4 — Dense & Functional: compact, bordered, information-forward, like a trade directory. Fast to scan, but least emotionally engaging and gives photography little room.
+
+**Why:** Fits the "technical/engineered" read that suits structural repair work, and is the simplest of the four to build and keep visually consistent across pages (no shadow/elevation system to maintain). Davis accepted the noted trade-off — it's the coldest of the four moods and offers the least "soft landing" for an anxious homeowner — in favor of precision and build simplicity.
+
+---
+
 ## Step 3 — Typography (2026-10-20)
 
 **Decided:** Option 3 — Classic Trust (Roboto Slab headings + Open Sans body).
