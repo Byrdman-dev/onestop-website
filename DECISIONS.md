@@ -4,6 +4,24 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 10 — Service page structure (2026-10-20)
+
+**Decided:** Option 1 — Classic Long-Form Scroll.
+
+Each service page (House Leveling, House Lifting, Foundation Repair) follows the same single-column template: Hero (service name + short description + CTA) → Our Process (4 numbered steps) → Before/After (drag slider, reused from Step 6) → Trust Badges (compact row) → FAQ (accordion) → Final CTA → Footer. Preview: `design-previews/step-10-service-page-structure/option-1-classic-scroll.html` (shown for House Leveling as the example service).
+
+**Options considered** (all four previews kept in `design-previews/step-10-service-page-structure/`):
+- 1 — Classic Long-Form Scroll: single-column, same template reused for all three service pages. *Chosen.*
+- 2 — Sidebar + Anchor Navigation: sticky sidebar (desktop) / horizontal tab bar (mobile) with jump links to each section. Discussed as the strongest option for full desktop-width use and dedicated mobile navigation, but rejected for the added build complexity of keeping a sidebar, mobile tab bar, and matching anchor IDs in sync across all three service pages.
+- 3 — Process-First Hero: the hero itself is the 4-step process visual. Rejected — risks the three service pages feeling repetitive since the leveling/lifting/foundation-repair processes are fairly similar.
+- 4 — Split Problem/Solution Columns: repeating Problem (left) vs. Solution (right) row pairs. Rejected — needs careful mobile stacking and is more unique page chrome to maintain than a single-column scroll.
+
+**Why:** Simplest structure to build once and reuse consistently across all three service pages by swapping copy and photos only — no sidebar/anchor-ID bookkeeping to keep in sync across pages. Davis weighed this against Option 2's stronger desktop-width use and dedicated mobile nav pattern, and chose to prioritize build simplicity and consistency over that extra polish.
+
+**Content note:** FAQ answers are intentionally general (no invented timeframes, prices, or stats), consistent with the project's content rules during this visual-design phase.
+
+---
+
 ## Step 9 — Trust-signals section (2026-10-20)
 
 **Decided:** Option 1 — Icon Badge Grid.
