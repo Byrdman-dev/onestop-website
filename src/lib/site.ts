@@ -3,7 +3,8 @@
 // Always import routes/asset() from here instead of hardcoding "/..." paths,
 // so the site still works correctly if the base path ever changes.
 
-const BASE = import.meta.env.BASE_URL;
+const RAW_BASE = import.meta.env.BASE_URL;
+const BASE = RAW_BASE.endsWith("/") ? RAW_BASE : `${RAW_BASE}/`;
 
 export const routes = {
   home: BASE,
