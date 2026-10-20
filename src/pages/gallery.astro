@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import GalleryCard from "../components/GalleryCard.astro";
+import { asset } from "../lib/site";
 
-const beforeSrc = "/assets/derived/before-after/02-tan-house-leveling-before.jpg";
-const afterSrc = "/assets/derived/before-after/02-tan-house-leveling-after.jpg";
+const beforeSrc = asset("assets/derived/before-after/02-tan-house-leveling-before.jpg");
+const afterSrc = asset("assets/derived/before-after/02-tan-house-leveling-after.jpg");
 
 // Placeholder: all cards reuse the one approved before/after pair (Tan House Full Leveling)
 // until each project's own photos are cleared for use.

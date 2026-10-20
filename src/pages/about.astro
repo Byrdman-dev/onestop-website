@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import TrustBadges from "../components/TrustBadges.astro";
 import CtaBanner from "../components/CtaBanner.astro";
+import { asset } from "../lib/site";
 ---
 
 <Layout title="About Us" currentPage="about">
@@ -36,7 +37,7 @@ import CtaBanner from "../components/CtaBanner.astro";
       </div>
       <div class="border border-steel-200">
         <img
-          src="/assets/derived/before-after/02-tan-house-leveling-after.jpg"
+          src={asset("assets/derived/before-after/02-tan-house-leveling-after.jpg")}
           alt="A recently leveled house, raised on new piers"
           class="w-full h-full object-cover"
         />

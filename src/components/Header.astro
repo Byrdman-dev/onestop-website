@@ -1,4 +1,6 @@
 ---
+import { routes, asset } from "../lib/site";
+
 interface Props {
   currentPage?: string;
 }
@@ -6,12 +8,12 @@ interface Props {
 const { currentPage = "" } = Astro.props;
 
 const navItems = [
-  { key: "house-leveling", label: "House Leveling", href: "/house-leveling-lake-charles-la" },
-  { key: "house-lifting", label: "House Lifting", href: "/house-lifting-lake-charles-la" },
-  { key: "foundation-repair", label: "Foundation Repair", href: "/foundation-repair-lake-charles-la" },
-  { key: "gallery", label: "Gallery", href: "/gallery" },
-  { key: "about", label: "About", href: "/about" },
-  { key: "contact", label: "Contact", href: "/contact" },
+  { key: "house-leveling", label: "House Leveling", href: routes.houseLeveling },
+  { key: "house-lifting", label: "House Lifting", href: routes.houseLifting },
+  { key: "foundation-repair", label: "Foundation Repair", href: routes.foundationRepair },
+  { key: "gallery", label: "Gallery", href: routes.gallery },
+  { key: "about", label: "About", href: routes.about },
+  { key: "contact", label: "Contact", href: routes.contact },
 ];
 
 const phone = "(337) 309-7301";
@@ -20,8 +22,8 @@ const phoneHref = "tel:+13373097301";
 
 <header class="bg-white border-b-2 border-brand-black relative z-20">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
-    <a href="/" class="flex flex-col items-center shrink-0">
-      <img src="/assets/derived/logo-roofline.png" alt="" class="w-32 sm:w-44 h-auto mb-1" />
+    <a href={routes.home} class="flex flex-col items-center shrink-0">
+      <img src={asset("assets/derived/logo-roofline.png")} alt="" class="w-32 sm:w-44 h-auto mb-1" />
       <span class="leading-tight text-center">
         <span class="block font-heading font-bold text-2xl sm:text-3xl text-brand-black">
           ONE <span class="text-brand-red">STOP</span>

@@ -5,6 +5,7 @@ import ProcessSteps from "../components/ProcessSteps.astro";
 import TrustBadgesCompact from "../components/TrustBadgesCompact.astro";
 import Faq from "../components/Faq.astro";
 import CtaBanner from "../components/CtaBanner.astro";
+import { routes, asset } from "../lib/site";
 
 const steps = [
   { title: "Free Inspection", description: "We assess the structure and your goals for the lift." },
@@ -44,7 +45,7 @@ const faqItems = [
         Raising a structure for flood protection, foundation repair access, or additional living space below — done
         with the same gentle, controlled lifting as our leveling work.
       </p>
-      <a href="/contact" class="inline-flex items-center gap-2 bg-brand-red text-white font-bold px-6 py-3 rounded-sm hover:bg-brand-red-hover transition">
+      <a href={routes.contact} class="inline-flex items-center gap-2 bg-brand-red text-white font-bold px-6 py-3 rounded-sm hover:bg-brand-red-hover transition">
         Get a Free Estimate
       </a>
     </div>
@@ -57,9 +58,9 @@ const faqItems = [
     <div class="max-w-3xl mx-auto px-4 sm:px-6 py-14 text-center">
       <h2 class="font-heading text-2xl font-bold mb-6">A Recent Project</h2>
       <BeforeAfterSlider
-        beforeSrc="/assets/derived/before-after/02-tan-house-leveling-before.jpg"
+        beforeSrc={asset("assets/derived/before-after/02-tan-house-leveling-before.jpg")}
         beforeAlt="Before"
-        afterSrc="/assets/derived/before-after/02-tan-house-leveling-after.jpg"
+        afterSrc={asset("assets/derived/before-after/02-tan-house-leveling-after.jpg")}
         afterAlt="After"
         class="mx-auto"
       />

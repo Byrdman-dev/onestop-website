@@ -4,6 +4,23 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## GitHub Pages deployment configured (2026-10-20)
+
+Not a design decision — a build/deployment milestone. Davis created the GitHub repo `Byrdman-dev/onestop-website`, pushed the existing commit history to it, then asked how to deploy to GitHub Pages. Offered a choice between the default `github.io` subpath URL and a custom domain; **Davis chose the default subpath URL** (`https://byrdman-dev.github.io/onestop-website/`).
+
+**What changed:**
+- `astro.config.mjs` — added `site: 'https://byrdman-dev.github.io'` and `base: '/onestop-website'` so Astro prefixes every generated URL correctly for a project-site (subpath) deployment.
+- `src/lib/site.ts` (new) — a `routes` object and `asset()` helper, both built from `import.meta.env.BASE_URL`, so every internal link and asset path is base-aware instead of a hardcoded root-relative string. Every component and page that had a hardcoded `href="/..."` or `src="/..."` was converted to use this helper (`Header`, `Footer`, `CtaBanner`, and all seven `src/pages/*.astro` files).
+- `.github/workflows/deploy.yml` (new) — builds with `withastro/action` and deploys via `actions/deploy-pages` on every push to `main`.
+
+**Verified:** `npm run check` (0 errors/warnings/hints) and `npm run build` (7/7 pages), then confirmed the built `dist/index.html` actually contains the `/onestop-website/`-prefixed paths.
+
+**Still needed from Davis (cannot be done from this environment — no `gh` CLI access):** in the GitHub repo, go to **Settings → Pages** and set **Source** to **GitHub Actions**. Once that's set, the next push to `main` will trigger the workflow and publish the site to `https://byrdman-dev.github.io/onestop-website/`.
+
+**Scope note:** this is a hosting/build-pipeline change, which is adjacent to Phase 2 per CLAUDE.md — flagged to Davis before proceeding since the project is nominally still Phase 1 (visual design only). Davis's explicit question ("how do I deploy it on github pages?") plus his subpath-vs-custom-domain choice was treated as authorization to implement the deployment plumbing itself; it does not add any backend, forms, or lead-capture functionality — the site remains static HTML with disabled form mockups.
+
+---
+
 ## Astro project scaffolded (2026-10-21)
 
 Not a design decision — a build milestone. Davis asked to scaffold the real Astro project from the approved `site-mockup/` design. The 7 mockup pages (header/footer markup copy-pasted into each flat `.html` file) were rebuilt as a proper component-based Astro site:
