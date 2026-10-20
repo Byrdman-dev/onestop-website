@@ -4,25 +4,25 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
-## Site mockup restructured to folder + index.html layout (2026-10-21)
+## Site mockup files renamed to conventional flat layout (2026-10-21)
 
-Not a design decision — a housekeeping note. Davis asked to rename the `site-mockup/` files to the conventional website directory layout: each page as its own folder containing `index.html`, giving clean extensionless URLs that match the slugs in CLAUDE.md exactly.
+Not a design decision — a housekeeping note. Davis asked to rename the `site-mockup/` files to the conventional layout. First pass restructured each page into its own folder with `index.html` inside (clean extensionless URLs); Davis clarified he meant flattened plain `.html` files instead, so that was reverted.
 
-**New structure:**
+**Final structure:**
 ```
 site-mockup/
   index.html                                  (was homepage-full-mockup.html)
-  house-leveling-lake-charles-la/index.html
-  house-lifting-lake-charles-la/index.html
-  foundation-repair-lake-charles-la/index.html
-  gallery/index.html
-  about/index.html
-  contact/index.html
+  house-leveling-lake-charles-la.html
+  house-lifting-lake-charles-la.html
+  foundation-repair-lake-charles-la.html
+  gallery.html
+  about.html
+  contact.html
 ```
 
 The old flat `index.html` (a listing page linking to every decision-round preview) was deleted — superseded by the real homepage now living at the site root, consistent with the directory cleanup above.
 
-**What changed in every file:** internal `href`s updated to trailing-slash folder links (e.g. `gallery.html` → `../gallery/` from a nested page, or `gallery/` from the root); asset `src` paths in the six nested pages updated from `../assets/...` to `../../assets/...` (one extra directory level). Verified via local static server that every route (`/site-mockup/`, `/site-mockup/gallery/`, etc.) resolves correctly and images/links still work.
+**What changed in every file:** internal `href`s point to the plain filenames above (e.g. `gallery.html`, `about.html`); asset `src` paths stay `../assets/...` in every page (all files are siblings at the same directory depth). Verified via local static server that every page loads and all links/images still work.
 
 ---
 
@@ -45,7 +45,7 @@ Not a design decision — a housekeeping note. Davis asked to clean up the proje
 
 Contact form and footer navigation merge into one cohesive dark band (no separate "Contact Us" section above it): left half is a visual-mockup form (name, phone, message, disabled submit button), right half is business info (address, phone, hours, BBB profile link) plus Services/Company nav columns, all within the same footer that appears on every page. Preview: `site-mockup/step-12-footer-contact/option-2-integrated-single-block.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in every page's footer, and site-mockup/contact/index.html.)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in every page's footer, and site-mockup/contact.html.)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Classic Separate Blocks: dedicated contact section (form + info) above a standard multi-column footer. Familiar, but takes the most vertical space and repeats phone/address in two places.
@@ -71,7 +71,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 The `/gallery` page shows a responsive card grid (1/2/3 columns by breakpoint), one card per project: a static before/after split thumbnail (left half before, right half after, divided by a thin red line), a category tag, project name, and date. Preview: `site-mockup/step-11-gallery-layout/option-1-card-grid.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/gallery/index.html.)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/gallery.html.)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Grid of Cards: scannable grid, static split thumbnail per project. *Chosen.*
@@ -91,7 +91,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 Each service page (House Leveling, House Lifting, Foundation Repair) follows the same single-column template: Hero (service name + short description + CTA) → Our Process (4 numbered steps) → Before/After (drag slider, reused from Step 6) → Trust Badges (compact row) → FAQ (accordion) → Final CTA → Footer. Preview: `site-mockup/step-10-service-page-structure/option-1-classic-scroll.html` (shown for House Leveling as the example service).
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/house-leveling-lake-charles-la/index.html and the other two service pages.)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/house-leveling-lake-charles-la.html and the other two service pages.)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Classic Long-Form Scroll: single-column, same template reused for all three service pages. *Chosen.*
@@ -111,7 +111,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 A dedicated "Why Homeowners Choose Us" section: a bordered grid of six badges (Free Estimates, Free Foundation Inspections, Workers' Comp Covered, Gentle Air Bag Lifting, Warranty on All Work, Local to Lake Charles), each with a line icon and one line of supporting copy. This formalizes the simple badge row used as a stand-in throughout every earlier step's previews. Preview: `site-mockup/step-9-trust-signals/option-1-icon-badge-grid.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/index.html and site-mockup/about/index.html.)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/index.html and site-mockup/about.html.)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Icon Badge Grid: real icon + one line of copy per badge. *Chosen.*
