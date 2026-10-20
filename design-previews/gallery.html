@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery | One Stop Construction &amp; Leveling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Open Sans', system-ui, sans-serif; }
+  .font-heading { font-family: 'Roboto Slab', serif; }
+  .split-thumb { position: relative; overflow: hidden; }
+  .split-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .split-thumb .after-half { clip-path: inset(0 0 0 50%); }
+  .split-thumb .divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: #E7030A; }
+  .mobile-dropdown { position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 8px 16px rgba(0,0,0,0.15); max-height: 0; overflow: hidden; transition: max-height 0.25s ease; z-index: 40; }
+  .mobile-dropdown.open { max-height: 500px; }
+  .mobile-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.4); opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 30; }
+  .mobile-backdrop.open { opacity: 1; pointer-events: auto; }
+</style>
+</head>
+<body class="bg-white">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="bg-white border-b-2 border-[#171B1F] relative z-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+      <a href="homepage-full-mockup.html" class="flex flex-col items-center shrink-0">
+        <img src="../assets/derived/logo-roofline.png" alt="" class="w-32 sm:w-44 h-auto mb-1" />
+        <span class="leading-tight text-center">
+          <span class="block font-heading font-bold text-2xl sm:text-3xl text-[#171B1F]">ONE <span class="text-[#E7030A]">STOP</span></span>
+          <span class="block text-xs sm:text-sm uppercase tracking-widest text-[#5C6B7A]">Construction &amp; Leveling</span>
+        </span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold uppercase tracking-wide text-[#363F48]">
+        <a href="house-leveling-lake-charles-la.html" class="hover:text-[#E7030A]">House Leveling</a>
+        <a href="house-lifting-lake-charles-la.html" class="hover:text-[#E7030A]">House Lifting</a>
+        <a href="foundation-repair-lake-charles-la.html" class="hover:text-[#E7030A]">Foundation Repair</a>
+        <a href="gallery.html" class="text-[#E7030A]">Gallery</a>
+        <a href="about.html" class="hover:text-[#E7030A]">About</a>
+        <a href="contact.html" class="hover:text-[#E7030A]">Contact</a>
+      </nav>
+      <a href="#" class="hidden lg:inline-flex shrink-0 items-center gap-2 bg-[#E7030A] text-white font-bold text-sm sm:text-base px-4 py-2.5 rounded-sm hover:bg-[#C40208] transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1.1l-2.3 2.1z"/></svg>
+        (337) 309-7301
+      </a>
+      <div class="flex lg:hidden items-center gap-2">
+        <a href="#" aria-label="Call (337) 309-7301" class="inline-flex items-center justify-center h-9 w-9 bg-[#E7030A] text-white rounded-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1.1l-2.3 2.1z"/></svg>
+        </a>
+        <button aria-label="Open menu" class="inline-flex items-center justify-center h-9 w-9 border border-[#171B1F]" onclick="document.getElementById('mobileDropdown').classList.toggle('open'); document.getElementById('mobileBackdrop').classList.toggle('open');">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#171B1F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-dropdown border-t border-[#C9D1D9]" id="mobileDropdown">
+      <nav class="flex flex-col px-4 text-[#363F48] text-sm font-semibold uppercase tracking-wide">
+        <a href="house-leveling-lake-charles-la.html" class="py-3 border-b border-[#EEF1F3]">House Leveling</a>
+        <a href="house-lifting-lake-charles-la.html" class="py-3 border-b border-[#EEF1F3]">House Lifting</a>
+        <a href="foundation-repair-lake-charles-la.html" class="py-3 border-b border-[#EEF1F3]">Foundation Repair</a>
+        <a href="gallery.html" class="py-3 border-b border-[#EEF1F3]">Gallery</a>
+        <a href="about.html" class="py-3 border-b border-[#EEF1F3]">About</a>
+        <a href="contact.html" class="py-3">Contact</a>
+      </nav>
+      <div class="px-4 pb-4 pt-1">
+        <a href="#" class="block text-center bg-[#E7030A] text-white font-bold py-3 rounded-sm">(337) 309-7301</a>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-backdrop" id="mobileBackdrop" onclick="document.getElementById('mobileDropdown').classList.remove('open'); document.getElementById('mobileBackdrop').classList.remove('open');"></div>
+
+  <!-- ===================== GALLERY INTRO ===================== -->
+  <section class="bg-[#171B1F] text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 text-center">
+      <h1 class="font-heading text-2xl sm:text-3xl font-bold mb-2">Our Work</h1>
+      <p class="text-[#C9D1D9] text-sm max-w-xl mx-auto">Real before/after results from projects around Lake Charles.</p>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY GRID ===================== -->
+  <!-- Placeholder: all cards reuse the one approved before/after pair (Tan House Full Leveling) until each project's own photos are cleared for use -->
+  <section class="bg-[#F4F6F8]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <a href="#" class="block bg-white border border-[#C9D1D9] hover:border-[#E7030A] transition">
+        <div class="split-thumb aspect-[4/3]">
+          <img src="../assets/derived/before-after/02-tan-house-leveling-before.jpg" alt="Before" />
+          <img class="after-half" src="../assets/derived/before-after/02-tan-house-leveling-after.jpg" alt="After" />
+          <div class="divider"></div>
+        </div>
+        <div class="p-4">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-[#E7030A] mb-1">House Leveling</p>
+          <p class="font-heading font-bold text-[#171B1F]">Tan House Full Leveling</p>
+          <p class="text-xs text-[#47535F]">Feb–Apr 2025</p>
+        </div>
+      </a>
+      <a href="#" class="block bg-white border border-[#C9D1D9] hover:border-[#E7030A] transition">
+        <div class="split-thumb aspect-[4/3]">
+          <img src="../assets/derived/before-after/02-tan-house-leveling-before.jpg" alt="Before" />
+          <img class="after-half" src="../assets/derived/before-after/02-tan-house-leveling-after.jpg" alt="After" />
+          <div class="divider"></div>
+        </div>
+        <div class="p-4">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-[#E7030A] mb-1">Foundation Repair</p>
+          <p class="font-heading font-bold text-[#171B1F]">Blue House Siding &amp; Sill Rebuild</p>
+          <p class="text-xs text-[#47535F]">Feb 2026</p>
+        </div>
+      </a>
+      <a href="#" class="block bg-white border border-[#C9D1D9] hover:border-[#E7030A] transition">
+        <div class="split-thumb aspect-[4/3]">
+          <img src="../assets/derived/before-after/02-tan-house-leveling-before.jpg" alt="Before" />
+          <img class="after-half" src="../assets/derived/before-after/02-tan-house-leveling-after.jpg" alt="After" />
+          <div class="divider"></div>
+        </div>
+        <div class="p-4">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-[#E7030A] mb-1">House Lifting</p>
+          <p class="font-heading font-bold text-[#171B1F]">Cabin Lifted Onto Trailer for Move</p>
+          <p class="text-xs text-[#47535F]">Jun 2023</p>
+        </div>
+      </a>
+      <a href="#" class="block bg-white border border-[#C9D1D9] hover:border-[#E7030A] transition">
+        <div class="split-thumb aspect-[4/3]">
+          <img src="../assets/derived/before-after/02-tan-house-leveling-before.jpg" alt="Before" />
+          <img class="after-half" src="../assets/derived/before-after/02-tan-house-leveling-after.jpg" alt="After" />
+          <div class="divider"></div>
+        </div>
+        <div class="p-4">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-[#E7030A] mb-1">Additional Work</p>
+          <p class="font-heading font-bold text-[#171B1F]">Mobile Home Deck, Ramp &amp; Porch Roof</p>
+          <p class="text-xs text-[#47535F]">Oct 2025</p>
+        </div>
+      </a>
+      <a href="#" class="block bg-white border border-[#C9D1D9] hover:border-[#E7030A] transition">
+        <div class="split-thumb aspect-[4/3]">
+          <img src="../assets/derived/before-after/02-tan-house-leveling-before.jpg" alt="Before" />
+          <img class="after-half" src="../assets/derived/before-after/02-tan-house-leveling-after.jpg" alt="After" />
+          <div class="divider"></div>
+        </div>
+        <div class="p-4">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-[#E7030A] mb-1">Additional Work</p>
+          <p class="font-heading font-bold text-[#171B1F]">Porch &amp; Ramp Build</p>
+          <p class="text-xs text-[#47535F]">Feb 2025</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER / CONTACT ===================== -->
+  <footer class="bg-[#171B1F] text-[#C9D1D9] border-t-2 border-[#E7030A]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div>
+        <h2 class="font-heading text-xl font-bold text-white mb-4">Get a Free Estimate</h2>
+        <form class="space-y-3">
+          <input type="text" disabled placeholder="Your name" class="w-full border border-[#363F48] bg-[#1D2328] px-3 py-2 text-sm text-white placeholder:text-[#7E8C9A]" />
+          <input type="text" disabled placeholder="(337) 555-0100" class="w-full border border-[#363F48] bg-[#1D2328] px-3 py-2 text-sm text-white placeholder:text-[#7E8C9A]" />
+          <textarea disabled placeholder="Tell us what's going on with your house..." rows="3" class="w-full border border-[#363F48] bg-[#1D2328] px-3 py-2 text-sm text-white placeholder:text-[#7E8C9A]"></textarea>
+          <button type="button" disabled class="w-full bg-[#E7030A] text-white font-bold py-3 rounded-sm opacity-90 cursor-not-allowed">Send Message</button>
+          <p class="text-xs text-[#7E8C9A]">Visual mockup only — form isn't wired up yet (Phase 2).</p>
+        </form>
+      </div>
+      <div class="grid grid-cols-2 gap-8">
+        <div>
+          <p class="font-heading font-bold text-white mb-2">One Stop Construction &amp; Leveling</p>
+          <p class="text-sm">31 B Rd, Lake Charles, LA 70601</p>
+          <p class="text-sm mb-1"><a href="#" class="text-[#E7030A] hover:text-[#C40208]">(337) 309-7301</a></p>
+          <p class="text-sm">Mon–Sat 7am–7pm</p>
+          <p class="text-sm mt-2"><a href="#" class="hover:text-white">BBB Profile ↗</a></p>
+        </div>
+        <div>
+          <p class="font-semibold text-white mb-2">Services</p>
+          <p class="text-sm"><a href="house-leveling-lake-charles-la.html" class="hover:text-white">House Leveling</a></p>
+          <p class="text-sm"><a href="house-lifting-lake-charles-la.html" class="hover:text-white">House Lifting</a></p>
+          <p class="text-sm"><a href="foundation-repair-lake-charles-la.html" class="hover:text-white">Foundation Repair</a></p>
+          <p class="font-semibold text-white mt-4 mb-2">Company</p>
+          <p class="text-sm"><a href="gallery.html" class="hover:text-white">Gallery</a></p>
+          <p class="text-sm"><a href="about.html" class="hover:text-white">About</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-[#363F48] text-center text-xs py-4 text-[#7E8C9A]">
+      © 2026 One Stop Construction &amp; Leveling LLC. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
