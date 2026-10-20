@@ -37,7 +37,7 @@ Forms and buttons may exist only as visual mockups (no working submit behavior).
 ## Decision protocol
 
 - Never settle a design question solo. For each design aspect, present 3–4 distinct options (no more).
-- Show options as real previews: static HTML files in `/design-previews/`, with real photos (metadata stripped) once cleared. Include a short pro/con per option. A recommendation may be marked, but labeled as such.
+- Show options as real previews: static HTML files in `/site-mockup/`, with real photos (metadata stripped) once cleared. Include a short pro/con per option. A recommendation may be marked, but labeled as such.
 - Cover at most two aspects per round. Wait for explicit choice. Davis may mix options or reject all.
 - After each decision: record it in `DECISIONS.md` (what, options considered, what was chosen, why) and make a git commit.
 
@@ -64,7 +64,7 @@ Order of decisions after the header banner (Step 1):
 
 ## Stack
 
-Astro (static output), Tailwind CSS, TypeScript. Design previews are plain static HTML files in `/design-previews/` that open directly in a browser.
+Astro (static output), Tailwind CSS, TypeScript. The static-HTML site mockup lives in `/site-mockup/` and opens directly in a browser (no build step) — it's the visual reference the eventual Astro build will follow.
 
 **Tell Davis before installing anything beyond Astro, Tailwind, TypeScript, and small image utilities** (e.g. image conversion/compression tools needed to prep assets). If this section ever conflicts with an invoked skill, this section wins.
 
