@@ -4,6 +4,24 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Astro project scaffolded (2026-10-21)
+
+Not a design decision — a build milestone. Davis asked to scaffold the real Astro project from the approved `site-mockup/` design. The 7 mockup pages (header/footer markup copy-pasted into each flat `.html` file) were rebuilt as a proper component-based Astro site:
+
+- `src/layouts/Layout.astro` — shared `<head>`, fonts, Header/Footer
+- `src/components/` — `Header.astro`, `Footer.astro`, `BeforeAfterSlider.astro` (the Step 6 drag slider, now a single reusable component instead of copy-pasted per page), `TrustBadges.astro` / `TrustBadgesCompact.astro` (Step 9), `GalleryCard.astro` (Step 11 split-thumbnail card), `VideoGallery.astro` (Step 7), `ProcessSteps.astro`, `Faq.astro`, `CtaBanner.astro`
+- `src/pages/` — one file per route: `index.astro`, `house-leveling-lake-charles-la.astro`, `house-lifting-lake-charles-la.astro`, `foundation-repair-lake-charles-la.astro`, `gallery.astro`, `about.astro`, `contact.astro`. Astro's static build automatically outputs each as a clean extensionless URL (e.g. `/gallery/index.html` served at `/gallery`) — no manual folder juggling needed.
+- Brand colors and fonts ported into Tailwind v4 `@theme` tokens in `src/styles/global.css` (`bg-brand-red`, `text-steel-700`, `font-heading`, etc.) instead of the arbitrary-value hex classes (`bg-[#E7030A]`) used throughout the mockup.
+- Fonts switched from the mockup's Google Fonts CDN links to self-hosted `@fontsource/roboto-slab` and `@fontsource/open-sans` packages — the production-performance improvement already flagged as a to-do in the Step 3 typography decision.
+
+**Verified:** `npm run build` (7/7 pages, no errors), `npm run check` (0 errors/warnings/hints), and manual click-through in a browser (homepage slider drag, nav active-state highlighting, mobile dropdown, video lightbox, gallery/about/contact pages) — all match the approved mockup pixel-for-pixel.
+
+**Scope — what this is not:** per CLAUDE.md Phase 1 rules, this scaffold adds no backend, no working form submission, no hosting/deployment, and no secrets/env vars. The contact form is still disabled inputs with no submit action. `site-mockup/` is left in place as the design reference; nothing there was deleted.
+
+**New root-level files:** `package.json`, `astro.config.mjs`, `tsconfig.json`, `.vscode/`, `public/` (favicon + a copy of `assets/derived/` for the dev server to serve), `src/`. `.gitignore` updated to also exclude `.env`/`.env.production`/`.idea/`. `node_modules/` and `dist/` are git-ignored, not committed.
+
+---
+
 ## Site mockup files renamed to conventional flat layout (2026-10-21)
 
 Not a design decision — a housekeeping note. Davis asked to rename the `site-mockup/` files to the conventional layout. First pass restructured each page into its own folder with `index.html` inside (clean extensionless URLs); Davis clarified he meant flattened plain `.html` files instead, so that was reverted.

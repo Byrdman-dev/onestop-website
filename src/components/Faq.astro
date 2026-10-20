@@ -1,0 +1,26 @@
+---
+interface Item {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-steel-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-14">
+    <h2 class="font-heading text-2xl font-bold text-brand-black mb-6 text-center">Common Questions</h2>
+    <div class="border border-steel-200 divide-y divide-steel-200 bg-white">
+      {items.map((item) => (
+        <details class="p-4">
+          <summary class="font-semibold text-brand-black cursor-pointer">{item.question}</summary>
+          <p class="text-sm text-steel-600 mt-2">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

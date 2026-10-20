@@ -64,7 +64,11 @@ Order of decisions after the header banner (Step 1):
 
 ## Stack
 
-Astro (static output), Tailwind CSS, TypeScript. The static-HTML site mockup lives in `/site-mockup/` and opens directly in a browser (no build step) — it's the visual reference the eventual Astro build will follow.
+Astro (static output), Tailwind CSS v4, TypeScript. The real project now lives at the repo root (`package.json`, `astro.config.mjs`, `src/`, `public/`) — run `npm install` then `npm run dev`. The static-HTML site mockup in `/site-mockup/` remains as the approved visual reference the Astro build was built from; it still opens directly in a browser with no build step.
+
+Fonts (Roboto Slab, Open Sans) are self-hosted via `@fontsource/*` packages rather than the Google Fonts CDN used in the mockup, per the production-performance note in DECISIONS.md's Step 3 typography entry.
+
+Site structure: `src/layouts/Layout.astro` (shared `<head>` + Header/Footer), `src/components/` (Header, Footer, BeforeAfterSlider, TrustBadges, TrustBadgesCompact, GalleryCard, VideoGallery, ProcessSteps, Faq, CtaBanner), `src/pages/` (one file per route, matching the slugs below exactly). Theme colors/fonts are defined as Tailwind v4 `@theme` tokens in `src/styles/global.css` (e.g. `bg-brand-red`, `text-steel-700`, `font-heading`) rather than repeating hex values/arbitrary values everywhere.
 
 **Tell Davis before installing anything beyond Astro, Tailwind, TypeScript, and small image utilities** (e.g. image conversion/compression tools needed to prep assets). If this section ever conflicts with an invoked skill, this section wins.
 

@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
+import TrustBadges from "../components/TrustBadges.astro";
+import GalleryCard from "../components/GalleryCard.astro";
+import VideoGallery from "../components/VideoGallery.astro";
+
+const galleryTeaser = [
+  {
+    category: "House Leveling",
+    title: "Tan House Full Leveling",
+    date: "Feb–Apr 2025",
+    beforeSrc: "/assets/derived/before-after/02-tan-house-leveling-before.jpg",
+    afterSrc: "/assets/derived/before-after/02-tan-house-leveling-after.jpg",
+  },
+  {
+    category: "Foundation Repair",
+    title: "Blue House Siding & Sill Rebuild",
+    date: "Feb 2026",
+    beforeSrc: "/assets/derived/before-after/02-tan-house-leveling-before.jpg",
+    afterSrc: "/assets/derived/before-after/02-tan-house-leveling-after.jpg",
+  },
+  {
+    category: "House Lifting",
+    title: "Cabin Lifted Onto Trailer for Move",
+    date: "Jun 2023",
+    beforeSrc: "/assets/derived/before-after/02-tan-house-leveling-before.jpg",
+    afterSrc: "/assets/derived/before-after/02-tan-house-leveling-after.jpg",
+  },
+];
+
+const videos = [
+  { title: "Full House Leveling", thumbnailSrc: "/assets/derived/before-after/02-tan-house-leveling-after.jpg" },
+  { title: "Mobile Home Deck Build", thumbnailSrc: "/assets/derived/before-after/02-tan-house-leveling-after.jpg" },
+  { title: "Cabin Lift & Move", thumbnailSrc: "/assets/derived/before-after/02-tan-house-leveling-after.jpg" },
+];
+---
+
+<Layout title="Home" currentPage="">
+  <!-- Hero -->
+  <section class="bg-brand-black text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-4 text-center">
+      <h1 class="font-heading text-2xl sm:text-4xl font-bold mb-2">Your House, Back Level — Guaranteed</h1>
+      <p class="text-steel-200 max-w-xl mx-auto text-sm sm:text-base">
+        Real results from a real job near Lake Charles. Drag the slider to see the full transformation.
+      </p>
+    </div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+      <BeforeAfterSlider
+        beforeSrc="/assets/derived/before-after/02-tan-house-leveling-before.jpg"
+        beforeAlt="Before: house settled low to the ground"
+        afterSrc="/assets/derived/before-after/02-tan-house-leveling-after.jpg"
+        afterAlt="After: house raised and leveled on new piers"
+      />
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-10 flex items-center justify-center gap-3 flex-wrap">
+      <a href="/contact" class="inline-flex items-center gap-2 bg-brand-red text-white font-bold px-6 py-3 rounded-sm hover:bg-brand-red-hover transition">
+        Get a Free Estimate
+      </a>
+      <a href="/gallery" class="inline-flex items-center gap-2 border border-white text-white font-bold px-6 py-3 rounded-sm hover:bg-white/10 transition">
+        See More Before/Afters
+      </a>
+    </div>
+  </section>
+
+  <TrustBadges />
+
+  <!-- Services -->
+  <section class="bg-steel-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+      <h2 class="font-heading text-2xl font-bold text-brand-black mb-8 text-center">Our Services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-steel-200 border border-steel-200">
+        <a href="/house-leveling-lake-charles-la" class="bg-white p-6 hover:bg-steel-50 transition">
+          <h3 class="font-heading text-lg font-bold text-brand-black mb-2">House Leveling</h3>
+          <p class="text-sm text-steel-600 leading-relaxed mb-3">
+            Correcting uneven floors and settling foundations with precise, gradual lifting — no guesswork, no shortcuts.
+          </p>
+          <span class="text-sm font-semibold text-brand-red">Learn More →</span>
+        </a>
+        <a href="/house-lifting-lake-charles-la" class="bg-white p-6 hover:bg-steel-50 transition">
+          <h3 class="font-heading text-lg font-bold text-brand-black mb-2">House Lifting</h3>
+          <p class="text-sm text-steel-600 leading-relaxed mb-3">
+            Raising structures for flood protection, foundation repair access, or additional living space below.
+          </p>
+          <span class="text-sm font-semibold text-brand-red">Learn More →</span>
+        </a>
+        <a href="/foundation-repair-lake-charles-la" class="bg-white p-6 hover:bg-steel-50 transition">
+          <h3 class="font-heading text-lg font-bold text-brand-black mb-2">Foundation Repair</h3>
+          <p class="text-sm text-steel-600 leading-relaxed mb-3">
+            Addressing cracked slabs, pier damage, and drainage issues before they threaten the structure.
+          </p>
+          <span class="text-sm font-semibold text-brand-red">Learn More →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- More before/after examples -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+      <h2 class="font-heading text-2xl font-bold text-brand-black mb-8 text-center">More Recent Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {galleryTeaser.map((item) => (
+          <GalleryCard {...item} href="/gallery" />
+        ))}
+      </div>
+      <p class="text-center mt-8">
+        <a href="/gallery" class="inline-flex items-center gap-2 border border-brand-black text-brand-black font-bold px-6 py-3 rounded-sm hover:bg-brand-black hover:text-white transition">
+          View Full Gallery →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <VideoGallery videos={videos} />
+</Layout>

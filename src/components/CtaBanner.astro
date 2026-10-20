@@ -1,0 +1,21 @@
+---
+interface Props {
+  heading: string;
+  buttonLabel?: string;
+  href?: string;
+}
+
+const { heading, buttonLabel = "Get a Free Estimate", href = "/contact" } = Astro.props;
+---
+
+<section class="bg-brand-black text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
+    <h2 class="font-heading text-xl sm:text-2xl font-bold">{heading}</h2>
+    <a
+      href={href}
+      class="shrink-0 inline-flex items-center gap-2 bg-brand-red text-white font-bold px-6 py-3 rounded-sm hover:bg-brand-red-hover transition"
+    >
+      {buttonLabel}
+    </a>
+  </div>
+</section>

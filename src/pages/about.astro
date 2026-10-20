@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TrustBadges from "../components/TrustBadges.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+---
+
+<Layout title="About Us" currentPage="about">
+  <section class="bg-brand-black text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14 text-center">
+      <h1 class="font-heading text-3xl sm:text-4xl font-bold mb-4">About One Stop Construction &amp; Leveling</h1>
+      <p class="text-steel-200 max-w-2xl mx-auto">
+        Locally owned and operated in Lake Charles, Louisiana — focused on house leveling, house lifting, and
+        foundation repair done right the first time.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="font-heading text-2xl font-bold text-brand-black mb-4">Our Approach</h2>
+        <p class="text-steel-700 leading-relaxed mb-4">
+          One Stop Construction &amp; Leveling was built around a simple idea: fix the actual cause of a settling or
+          damaged house, not just the symptoms. Every project starts with a free, honest inspection — not a sales
+          pitch — so homeowners know exactly what's happening underneath their home before any work begins.
+        </p>
+        <p class="text-steel-700 leading-relaxed mb-4">
+          We use gentle, controlled air bag lifting instead of rushed jacking, because a house that's been settling
+          for years shouldn't be forced back into place overnight. Every job is backed by a warranty, and every crew
+          on site is covered by workers' comp — for our team's protection and yours.
+        </p>
+        <div class="border border-dashed border-steel-200 bg-steel-50 p-4 text-sm text-steel-500">
+          <strong class="text-steel-700">Placeholder:</strong> owner bio, exact years of experience, and
+          license/registration number will be added here once confirmed by the owner.
+        </div>
+      </div>
+      <div class="border border-steel-200">
+        <img
+          src="/assets/derived/before-after/02-tan-house-leveling-after.jpg"
+          alt="A recently leveled house, raised on new piers"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
+
+  <TrustBadges />
+  <CtaBanner heading="Ready to talk about your house?" />
+</Layout>

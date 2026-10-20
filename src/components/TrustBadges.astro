@@ -1,0 +1,66 @@
+---
+interface Props {
+  heading?: string;
+  subheading?: string;
+}
+
+const {
+  heading = "Why Homeowners Choose Us",
+  subheading = "No surprises, no pressure — just a straightforward process from first visit to finished lift.",
+} = Astro.props;
+
+const badges = [
+  {
+    title: "Free Estimates",
+    description: "No-obligation quote before any work begins.",
+    path: "M9 7h6m-6 4h6m-6 4h3M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16l-4-2-2 2-2-2-2 2-4-2z",
+  },
+  {
+    title: "Free Foundation Inspections",
+    description: "We check the real problem before quoting a fix.",
+    path: "M11 3L5 6v5c0 5 2.5 8 6 9 3.5-1 6-4 6-9V6l-6-3zM9 11l2 2 4-4",
+  },
+  {
+    title: "Workers' Comp Covered",
+    description: "Every crew on site is covered — you're protected too.",
+    path: "M17 9V7a5 5 0 00-10 0v2M5 9h14l-1 11H6L5 9z",
+  },
+  {
+    title: "Gentle Air Bag Lifting",
+    description: "Slow, controlled lifts — less stress on your home.",
+    path: "M12 8v4l3 2",
+    circle: true,
+  },
+  {
+    title: "Warranty on All Work",
+    description: "We stand behind every lift and repair we complete.",
+    path: "M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z",
+  },
+  {
+    title: "Local to Lake Charles",
+    description: "Based in Lake Charles, serving the surrounding area.",
+    path: "M4 21V9l8-6 8 6v12M9 21v-6h6v6",
+  },
+];
+---
+
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+    <div class="text-center mb-10">
+      <h2 class="font-heading text-2xl sm:text-3xl font-bold text-brand-black mb-2">{heading}</h2>
+      <p class="text-steel-600 max-w-xl mx-auto">{subheading}</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-steel-200 border border-steel-200">
+      {badges.map((badge) => (
+        <div class="bg-white p-6 text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto mb-3 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            {badge.circle && <circle cx="12" cy="12" r="8"></circle>}
+            <path d={badge.path}></path>
+          </svg>
+          <p class="font-heading font-bold text-brand-black mb-1">{badge.title}</p>
+          <p class="text-sm text-steel-600">{badge.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

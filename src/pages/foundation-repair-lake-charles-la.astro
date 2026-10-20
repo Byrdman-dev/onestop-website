@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
+import ProcessSteps from "../components/ProcessSteps.astro";
+import TrustBadgesCompact from "../components/TrustBadgesCompact.astro";
+import Faq from "../components/Faq.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+
+const steps = [
+  { title: "Free Inspection", description: "We diagnose the cause — soil, drainage, or structural settling." },
+  { title: "Plan & Estimate", description: "A clear, no-obligation plan before any work starts." },
+  { title: "Repair & Reinforce", description: "Addressing piers, slabs, and drainage to fix the cause, not just the symptom." },
+  { title: "Final Check", description: "We verify the repair and back the work with a warranty." },
+];
+
+const badges = [
+  { title: "Free Estimates", description: "No obligation" },
+  { title: "Free Inspections", description: "Foundation checks" },
+  { title: "Workers' Comp", description: "Fully covered crews" },
+  { title: "Warranty", description: "On all work" },
+];
+
+const faqItems = [
+  {
+    question: "What causes foundation damage?",
+    answer: "Foundation issues are often caused by soil movement, drainage problems, or age-related settling. Your free inspection will identify the specific cause for your home.",
+  },
+  {
+    question: "Do you repair drainage issues too?",
+    answer: "Yes — drainage is often part of a complete foundation repair plan, since it's frequently connected to the underlying cause.",
+  },
+  {
+    question: "Is foundation repair covered by insurance?",
+    answer: "Coverage varies by policy and cause of damage — we recommend checking with your insurance provider. We're happy to provide documentation from our inspection if needed.",
+  },
+];
+---
+
+<Layout title="Foundation Repair in Lake Charles, LA" currentPage="foundation-repair">
+  <section class="bg-brand-black text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14 text-center">
+      <h1 class="font-heading text-3xl sm:text-4xl font-bold mb-4">Foundation Repair in Lake Charles, LA</h1>
+      <p class="text-steel-200 max-w-2xl mx-auto mb-7">
+        Cracked slabs, pier damage, and drainage issues only get more expensive to fix the longer they're left alone.
+        We find the real cause before recommending a repair.
+      </p>
+      <a href="/contact" class="inline-flex items-center gap-2 bg-brand-red text-white font-bold px-6 py-3 rounded-sm hover:bg-brand-red-hover transition">
+        Get a Free Estimate
+      </a>
+    </div>
+  </section>
+
+  <ProcessSteps steps={steps} />
+
+  <!-- Placeholder: reuses the one approved before/after pair (Tan House Full Leveling) until a Foundation Repair-specific pair is cleared for use -->
+  <section class="bg-brand-black text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-14 text-center">
+      <h2 class="font-heading text-2xl font-bold mb-6">A Recent Project</h2>
+      <BeforeAfterSlider
+        beforeSrc="/assets/derived/before-after/02-tan-house-leveling-before.jpg"
+        beforeAlt="Before"
+        afterSrc="/assets/derived/before-after/02-tan-house-leveling-after.jpg"
+        afterAlt="After"
+        class="mx-auto"
+      />
+    </div>
+  </section>
+
+  <TrustBadgesCompact badges={badges} />
+  <Faq items={faqItems} />
+  <CtaBanner heading="Ready for a free inspection?" />
+</Layout>

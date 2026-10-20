@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GalleryCard from "../components/GalleryCard.astro";
+
+const beforeSrc = "/assets/derived/before-after/02-tan-house-leveling-before.jpg";
+const afterSrc = "/assets/derived/before-after/02-tan-house-leveling-after.jpg";
+
+// Placeholder: all cards reuse the one approved before/after pair (Tan House Full Leveling)
+// until each project's own photos are cleared for use.
+const projects = [
+  { category: "House Leveling", title: "Tan House Full Leveling", date: "Feb–Apr 2025", beforeSrc, afterSrc },
+  { category: "Foundation Repair", title: "Blue House Siding & Sill Rebuild", date: "Feb 2026", beforeSrc, afterSrc },
+  { category: "House Lifting", title: "Cabin Lifted Onto Trailer for Move", date: "Jun 2023", beforeSrc, afterSrc },
+  { category: "Additional Work", title: "Mobile Home Deck, Ramp & Porch Roof", date: "Oct 2025", beforeSrc, afterSrc },
+  { category: "Additional Work", title: "Porch & Ramp Build", date: "Feb 2025", beforeSrc, afterSrc },
+];
+---
+
+<Layout title="Gallery" currentPage="gallery">
+  <section class="bg-brand-black text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 text-center">
+      <h1 class="font-heading text-2xl sm:text-3xl font-bold mb-2">Our Work</h1>
+      <p class="text-steel-200 text-sm max-w-xl mx-auto">Real before/after results from projects around Lake Charles.</p>
+    </div>
+  </section>
+
+  <section class="bg-steel-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {projects.map((project) => (
+        <GalleryCard {...project} />
+      ))}
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,73 @@
+---
+interface Video {
+  title: string;
+  thumbnailSrc: string;
+}
+
+interface Props {
+  videos: Video[];
+}
+
+const { videos } = Astro.props;
+---
+
+<section class="bg-brand-black text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+    <div class="text-center mb-10">
+      <h2 class="font-heading text-2xl sm:text-3xl font-bold mb-3">Watch Our Work</h2>
+      <p class="text-steel-200 max-w-xl mx-auto">Short clips from real jobs around Lake Charles.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-steel-500 border border-steel-500">
+      {videos.map((video) => (
+        <button class="video-card relative block bg-steel-800 text-left group" data-open-lightbox>
+          <img
+            src={video.thumbnailSrc}
+            alt={`${video.title} video placeholder thumbnail`}
+            class="w-full aspect-video object-cover opacity-90 group-hover:opacity-100 transition"
+          />
+          <span class="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition flex items-center justify-center">
+            <span class="h-12 w-12 rounded-full bg-brand-red flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </span>
+          </span>
+          <span class="block px-4 py-3 text-sm font-semibold">{video.title}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div id="videoLightbox" class="video-lightbox fixed inset-0 bg-black/85 z-50 items-center justify-center p-4">
+  <div class="relative w-full max-w-3xl">
+    <button
+      id="videoLightboxClose"
+      class="absolute -top-10 right-0 text-white text-sm font-bold uppercase tracking-wide hover:text-brand-red"
+    >
+      Close ✕
+    </button>
+    <div class="aspect-video bg-steel-800 border border-steel-500 flex items-center justify-center text-steel-400 text-sm font-medium">
+      [ Video would play here — embedded from an external host, e.g. YouTube/Vimeo ]
+    </div>
+  </div>
+</div>
+
+<style>
+  .video-lightbox {
+    display: none;
+  }
+  .video-lightbox.open {
+    display: flex;
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById("videoLightbox");
+  const closeBtn = document.getElementById("videoLightboxClose");
+
+  document.querySelectorAll("[data-open-lightbox]").forEach((btn) => {
+    btn.addEventListener("click", () => lightbox?.classList.add("open"));
+  });
+  closeBtn?.addEventListener("click", () => lightbox?.classList.remove("open"));
+</script>

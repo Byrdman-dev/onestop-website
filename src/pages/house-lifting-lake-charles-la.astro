@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
+import ProcessSteps from "../components/ProcessSteps.astro";
+import TrustBadgesCompact from "../components/TrustBadgesCompact.astro";
+import Faq from "../components/Faq.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+
+const steps = [
+  { title: "Free Inspection", description: "We assess the structure and your goals for the lift." },
+  { title: "Plan & Estimate", description: "A clear, no-obligation plan before any work starts." },
+  { title: "Controlled Lifting", description: "The structure is raised slowly and evenly to the target height." },
+  { title: "Final Check", description: "We verify everything is secure and back the work with a warranty." },
+];
+
+const badges = [
+  { title: "Free Estimates", description: "No obligation" },
+  { title: "Workers' Comp", description: "Fully covered crews" },
+  { title: "Controlled Lifting", description: "Slow and even" },
+  { title: "Warranty", description: "On all work" },
+];
+
+const faqItems = [
+  {
+    question: "How high can a house be lifted?",
+    answer: "The right height depends on your goals — flood protection, foundation access, or added space below — and will be discussed during your free inspection.",
+  },
+  {
+    question: "Do I need permits to lift my house?",
+    answer: "Permit requirements vary by project and location. We'll go over what applies to your home during the inspection.",
+  },
+  {
+    question: "Can lifting be combined with foundation repair?",
+    answer: "Yes — many lifting projects address foundation issues at the same time. We'll cover this as part of your free estimate.",
+  },
+];
+---
+
+<Layout title="House Lifting in Lake Charles, LA" currentPage="house-lifting">
+  <section class="bg-brand-black text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14 text-center">
+      <h1 class="font-heading text-3xl sm:text-4xl font-bold mb-4">House Lifting in Lake Charles, LA</h1>
+      <p class="text-steel-200 max-w-2xl mx-auto mb-7">
+        Raising a structure for flood protection, foundation repair access, or additional living space below — done
+        with the same gentle, controlled lifting as our leveling work.
+      </p>
+      <a href="/contact" class="inline-flex items-center gap-2 bg-brand-red text-white font-bold px-6 py-3 rounded-sm hover:bg-brand-red-hover transition">
+        Get a Free Estimate
+      </a>
+    </div>
+  </section>
+
+  <ProcessSteps steps={steps} />
+
+  <!-- Placeholder: reuses the one approved before/after pair (Tan House Full Leveling) until a House Lifting-specific pair is cleared for use -->
+  <section class="bg-brand-black text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-14 text-center">
+      <h2 class="font-heading text-2xl font-bold mb-6">A Recent Project</h2>
+      <BeforeAfterSlider
+        beforeSrc="/assets/derived/before-after/02-tan-house-leveling-before.jpg"
+        beforeAlt="Before"
+        afterSrc="/assets/derived/before-after/02-tan-house-leveling-after.jpg"
+        afterAlt="After"
+        class="mx-auto"
+      />
+    </div>
+  </section>
+
+  <TrustBadgesCompact badges={badges} />
+  <Faq items={faqItems} />
+  <CtaBanner heading="Ready for a free inspection?" />
+</Layout>

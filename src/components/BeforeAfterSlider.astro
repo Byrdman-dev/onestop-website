@@ -1,0 +1,107 @@
+---
+interface Props {
+  beforeSrc: string;
+  beforeAlt: string;
+  afterSrc: string;
+  afterAlt: string;
+  class?: string;
+}
+
+const { beforeSrc, beforeAlt, afterSrc, afterAlt, class: className = "" } = Astro.props;
+---
+
+<div class={`before-after aspect-[7/6] ${className}`}>
+  <img src={beforeSrc} alt={beforeAlt} />
+  <div class="before-after-reveal">
+    <img src={afterSrc} alt={afterAlt} />
+  </div>
+  <span class="before-after-label" style="left:12px;">Before</span>
+  <span class="before-after-label" style="right:12px;">After</span>
+  <div class="before-after-handle">
+    <div class="before-after-handle-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5l-6 7 6 7V5zm8 0v14l6-7-6-7z"></path>
+      </svg>
+    </div>
+  </div>
+  <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after" />
+</div>
+
+<style>
+  .before-after {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-steel-500);
+  }
+  .before-after img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .before-after-reveal {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    clip-path: inset(0 0 0 50%);
+  }
+  .before-after-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: var(--color-brand-red);
+    transform: translateX(-50%);
+  }
+  .before-after-handle-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: var(--color-brand-red);
+    border: 2px solid white;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: ew-resize;
+  }
+  .before-after input[type="range"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+  }
+  .before-after-label {
+    position: absolute;
+    top: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: white;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 4px 10px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".before-after").forEach((slider) => {
+    const range = slider.querySelector<HTMLInputElement>('input[type="range"]');
+    const reveal = slider.querySelector<HTMLElement>(".before-after-reveal");
+    const handle = slider.querySelector<HTMLElement>(".before-after-handle");
+    if (!range || !reveal || !handle) return;
+    range.addEventListener("input", () => {
+      const v = range.value;
+      reveal.style.clipPath = `inset(0 0 0 ${v}%)`;
+      handle.style.left = `${v}%`;
+    });
+  });
+</script>

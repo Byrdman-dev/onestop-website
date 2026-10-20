@@ -1,0 +1,27 @@
+---
+interface Step {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  steps: Step[];
+}
+
+const { steps } = Astro.props;
+---
+
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+    <h2 class="font-heading text-2xl font-bold text-brand-black mb-8 text-center">Our Process</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-px bg-steel-200 border border-steel-200">
+      {steps.map((step, i) => (
+        <div class="bg-white p-6">
+          <p class="font-heading text-brand-red text-2xl font-bold mb-2">{i + 1}</p>
+          <p class="font-heading font-bold text-brand-black mb-1">{step.title}</p>
+          <p class="text-sm text-steel-600">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

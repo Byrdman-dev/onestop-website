@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #E7030A;
+  --color-brand-red-hover: #C40208;
+  --color-brand-black: #171B1F;
+
+  --color-steel-50: #F4F6F8;
+  --color-steel-200: #C9D1D9;
+  --color-steel-400: #7E8C9A;
+  --color-steel-500: #5C6B7A;
+  --color-steel-600: #47535F;
+  --color-steel-700: #363F48;
+  --color-steel-800: #262C33;
+  --color-steel-900: #171B1F;
+
+  --font-sans: "Open Sans", system-ui, sans-serif;
+  --font-heading: "Roboto Slab", serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+}
