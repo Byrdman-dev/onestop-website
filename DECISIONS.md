@@ -4,6 +4,24 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 11 — Gallery layout (2026-10-20)
+
+**Decided:** Option 1 — Grid of Cards.
+
+The `/gallery` page shows a responsive card grid (1/2/3 columns by breakpoint), one card per project: a static before/after split thumbnail (left half before, right half after, divided by a thin red line), a category tag, project name, and date. Preview: `design-previews/step-11-gallery-layout/option-1-card-grid.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-11-gallery-layout/`):
+- 1 — Grid of Cards: scannable grid, static split thumbnail per project. *Chosen.*
+- 2 — Full-Width Stacked Showcase: each project gets its own full-width interactive drag-slider, stacked vertically. Maximum impact per photo, but a long page once there are many projects.
+- 3 — Filterable Masonry: Pinterest-style grid with category filter buttons (All / House Leveling / House Lifting / Foundation Repair / Additional Work). Most scalable, but most complex to build and mixes single photos with before/after pairs less consistently.
+- 4 — Tabbed List + Viewer: a project list next to one large interactive viewer that updates on click. Premium/app-like feel, but needs more JS and careful mobile stacking.
+
+**Why:** Most scannable way to browse many projects quickly, and reuses the card pattern already established for the video grid (Step 7) and trust badges (Step 9) — keeps the gallery visually consistent with the rest of the site rather than introducing a new interaction pattern. The full interactive drag-slider (Step 6) is reserved for a project's own detail view, not the grid thumbnails.
+
+**Placeholder/content note:** Only one before/after pair is cleared for use so far (Tan House Full Leveling, from Step 6). All cards in the preview reuse that same pair as a stand-in with different project names/categories/dates (drawn from the real folder names in `before-after-pics/`, which are plain text, not photos). Each additional project's real photos still need their own flag-and-approve pass (house numbers, bystanders, etc.) before launch, same process as Step 6.
+
+---
+
 ## Step 10 — Service page structure (2026-10-20)
 
 **Decided:** Option 1 — Classic Long-Form Scroll.
