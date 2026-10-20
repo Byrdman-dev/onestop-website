@@ -4,6 +4,24 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 5 — Homepage layout & hero (2026-10-20)
+
+**Decided:** Option 2 — Before/After-Led Hero.
+
+The hero section itself is a before/after photo pair (not a generic hero photo), with a short headline above it and CTAs below. Section order: Hero (before/after pair) → Trust row → Services → More Before/After Examples teaser → Footer. No testimonial band in this layout. Preview: `design-previews/step-5-homepage-hero/option-2-before-after-led.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-5-homepage-hero/`):
+- 1 — Classic Stack: Hero → Trust → Services → Before/After teaser → Testimonial → Final CTA → Footer. Familiar/easy to build, but buries the before/after proof mid-page.
+- 2 — Before/After-Led Hero: the hero *is* a before/after pair. *Chosen.*
+- 3 — Dual-Path Hero: hero splits into "Need Help Now" (call) vs. "Just Looking" (see work) paths. Serves both visitor mindsets, but dilutes the single clearest CTA.
+- 4 — Problem/Solution Narrative: hero names the problem first (cracks, sloping floors), then signs-to-watch, services, proof. Most empathetic arc, but longest path to the phone number/proof and leans on copy that's still placeholder in this visual phase.
+
+**Why:** Directly matches this project's stated goal — before/after photos are the core proof — and sharply differentiates from the current site, which has no photos of actual work at all. Davis accepted the trade-off that this raises the bar on photo curation (the very first thing a visitor sees must be a strong, well-matched pair) and that there's no testimonial band in this layout.
+
+**Depends on:** Step 6 (before/after photo component — slider vs. side-by-side, captions, etc.) is the next decision and directly determines how this hero is actually built, since the hero itself is now a before/after component instance.
+
+---
+
 ## Step 4 — Overall style & mood (2026-10-20)
 
 **Decided:** Option 1 — Sharp & Structural.
