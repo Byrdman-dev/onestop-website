@@ -4,6 +4,24 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 3 — Typography (2026-10-20)
+
+**Decided:** Option 3 — Classic Trust (Roboto Slab headings + Open Sans body).
+
+Headings use Roboto Slab (bold, weight 700), body copy uses Open Sans (weight 400/600). Preview: `design-previews/step-3-typography/option-3-classic-trust.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-3-typography/`):
+- 1 — Bold Industrial (Oswald + Inter): condensed, heavy, uppercase headings echoing the logo's bold slanted wordmark. Strong/authoritative, but condensed type loses legibility in long headlines.
+- 2 — Clean Modern (Inter, single family): one font family, different weights. Very legible and fast-loading, but least distinctive/branded of the four.
+- 3 — Classic Trust (Roboto Slab + Open Sans): serif headings read as established/reputable. *Chosen.*
+- 4 — Warm Humanist (Quicksand + Work Sans): rounded, friendly headings. Most reassuring tone, but least "heavy-duty construction" feeling and furthest from the logo's angular wordmark.
+
+**Why:** Slab-serif headings read as established and reputable — the pattern homeowners associate with long-standing local service companies — and pair calmly with the steel blue-gray palette from Step 2 without competing against the red accent. Davis accepted the trade-off noted in the preview (serif headings are the least visually unified pairing with the logo's bold condensed sans wordmark) in favor of the trust-building tone.
+
+**Note:** Previews load Roboto Slab/Open Sans via Google Fonts CDN for quick iteration. Production will likely self-host the chosen fonts for performance/privacy — that's a build-phase detail, not part of this decision.
+
+---
+
 ## Step 2 — Color palette (2026-10-18)
 
 **Decided:** Option 3 — Steel Blue-Gray Secondary.
