@@ -4,6 +4,24 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 9 — Trust-signals section (2026-10-20)
+
+**Decided:** Option 1 — Icon Badge Grid.
+
+A dedicated "Why Homeowners Choose Us" section: a bordered grid of six badges (Free Estimates, Free Foundation Inspections, Workers' Comp Covered, Gentle Air Bag Lifting, Warranty on All Work, Local to Lake Charles), each with a line icon and one line of supporting copy. This formalizes the simple badge row used as a stand-in throughout every earlier step's previews. Preview: `design-previews/step-9-trust-signals/option-1-icon-badge-grid.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-9-trust-signals/`):
+- 1 — Icon Badge Grid: real icon + one line of copy per badge. *Chosen.*
+- 2 — Horizontal Scroll Strip: compact pill badges in a thin scrollable row. Minimal vertical space, but badges past the first few may go unseen if visitors don't scroll it.
+- 3 — Seal/Badge Row: circular "medallion" badges (most visually credible/official-looking); includes a BBB badge that links out without stating a rating. Needed a mid-build fix — an attempted hexagon shape via CSS `clip-path` rendered as a thin sliver, replaced with concentric-circle medallions instead.
+- 4 — Narrative Block: trust points as a short list next to the approved before/after photo. Warmest/most personal, but least scannable at a glance.
+
+**Why:** Keeps the section consistent with the simple badge pattern that's already been used as a placeholder throughout every prior step's previews, so nothing needs to be retrofitted — just filled in with real icons and copy. Easy to extend with a 7th or 8th badge later if needed.
+
+**Content note:** Only confirmed selling points are shown. Years of experience, contractor license/registration number, and BBB rating are intentionally left out of every option until Davis/the owner confirms exact wording (see the running "owner must confirm/supply" list from Step 0).
+
+---
+
 ## Step 8 — Navigation & phone/call button, mobile (2026-10-20)
 
 **Decided:** Option 2 — Dropdown Accordion, revised to float over content.
