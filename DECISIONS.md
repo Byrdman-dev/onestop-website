@@ -4,6 +4,24 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 7 — Video presentation (2026-10-20)
+
+**Decided:** Option 4 — Card Grid.
+
+A "Watch Our Work" section with a grid of video thumbnails (one per project), each with a play-button overlay and a caption. Clicking a card opens the video (lightbox reused from Option 1's pattern in this preview; final interaction can be refined when real videos exist). Preview: `design-previews/step-7-video-presentation/option-4-card-grid.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-7-video-presentation/`):
+- 1 — Lightbox Play: click thumbnail → video opens in a dimmed modal overlay. Focused viewing, needs modal JS.
+- 2 — Inline Expand: click thumbnail → video plays in place, no overlay. Simplest to build, but content shifts down when it expands.
+- 3 — Autoplay Background Loop: muted ambient loop plays automatically behind a section. Most dynamic, but adds page weight and needs a `prefers-reduced-motion` fallback.
+- 4 — Card Grid: a dedicated grid of video thumbnails with captions. *Chosen.*
+
+**Why:** Scales naturally once there's more than one video (one per project, matching the gallery's project-based structure), and keeps video content organized in its own section rather than scattered through the homepage. Davis accepted the trade-off that it needs genuinely distinct thumbnails per card to avoid feeling repetitive, and that it reads as more of a separate destination than something woven into the main homepage narrative.
+
+**Still pending (Phase 2, not now):** No real video files exist. This decision is visual treatment only — actual videos will be embedded from an external host (e.g. YouTube/Vimeo) in a later phase, per project scope rules. Thumbnails in the preview reuse the one approved before/after photo as a stand-in.
+
+---
+
 ## Step 6 — Before/after photo component (2026-10-20)
 
 **Decided:** Option 1 — Drag Slider.
