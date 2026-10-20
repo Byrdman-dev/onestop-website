@@ -4,6 +4,24 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 8 — Navigation & phone/call button, mobile (2026-10-20)
+
+**Decided:** Option 2 — Dropdown Accordion, revised to float over content.
+
+Tapping the hamburger expands a panel directly below the mobile header (same visual style as a basic dropdown), but the panel is absolutely positioned over a dimmed backdrop instead of pushing page content down — tapping the backdrop or the hamburger again closes it, and the page never shifts. Preview: `design-previews/step-8-nav-phone-button/option-2-dropdown.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-8-nav-phone-button/`, each in a 390px-wide phone frame):
+- 1 — Slide-Out Drawer: hamburger opens a full-height side drawer with a dimmed backdrop. Most familiar pattern, but a bigger motion/build than needed here.
+- 2 — Dropdown Accordion: panel below the header. *Chosen*, revised per Davis's request (see below).
+- 3 — Sticky Bottom Call Bar: a persistent call button fixed to the bottom of the screen while scrolling. Rejected — permanently uses screen real estate and adds a second sticky element to keep in sync with the header.
+- 4 — Full-Screen Minimal: icon-only header, full-screen nav overlay. Rejected — hides the phone number from casual view.
+
+**Revision (same day):** First pass of Option 2 pushed page content down when opened (plain in-flow panel). Davis asked to keep the dropdown's look but avoid the layout shift. Changed the panel to `position: absolute` with a semi-transparent backdrop behind it (same open/close triggers), so it now floats over the page instead of displacing it — closer to a lightweight drawer in behavior, without the side-slide motion.
+
+**Why:** Keeps the simplest visual style (a panel under the header, not a side-sliding drawer) while removing the layout-jump drawback that the original in-flow version had. The phone/call button stays visible as a small icon button in the header at all times (not hidden inside the menu), consistent with keeping the call action always one tap away.
+
+---
+
 ## Step 7 — Video presentation (2026-10-20)
 
 **Decided:** Option 4 — Card Grid.
