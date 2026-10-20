@@ -4,6 +4,26 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 6 — Before/after photo component (2026-10-20)
+
+**Decided:** Option 1 — Drag Slider.
+
+A draggable vertical handle splits the before/after images; dragging it left/right reveals more of each side via CSS `clip-path`. Built with a plain `<input type="range">` under the hood for native touch/keyboard support. Preview: `design-previews/step-6-before-after-component/option-1-drag-slider.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-6-before-after-component/`):
+- 1 — Drag Slider: draggable reveal handle. Most engaging/familiar before/after pattern. *Chosen.*
+- 2 — Side-by-Side: both photos shown at once, no JS. Simplest to build, but each image is smaller on narrow phones.
+- 3 — Toggle: tap Before/After buttons to swap one full-size image. Max image impact on mobile, but requires an active tap to see the payoff.
+- 4 — Stacked: before/after stacked vertically, full width each. Most mobile-friendly, but loses the instant side-by-side comparison.
+
+**Why:** Most engaging and recognizable pattern for before/after proof, and directly reinforces the "drag to see the transformation" framing that fits the Before/After-Led Hero from Step 5. Davis accepted the added JS complexity and the need for a visual hint (handle + Before/After labels) so first-time visitors notice it's interactive.
+
+**Real photos used for the first time this project:** `assets/derived/before-after/02-tan-house-leveling-before.jpg` and `...-after.jpg`, sourced from `before-after-pics/02_Tan house full leveling (Feb-Apr 2025)/before_1_...IMG_1281.HEIC` and `after_3_...IMG_1457.HEIC`.
+
+**Privacy flag + sign-off (2026-10-20):** Before use, these photos were found to show a house number ("10384") on the fascia in both shots, and a bystander (worker, back turned) at the right edge of the before photo. Flagged to Davis per project privacy rules; Davis approved cropping rather than switching photos. Both images were cropped to exclude the house number and the bystander entirely (not just visually obscured), then resized to 1400px wide, metadata already stripped during HEIC→JPEG conversion. No other photos have been cleared for use yet — any additional before/after photos used later (e.g. for the gallery, decision #10) need this same flag-and-confirm step.
+
+---
+
 ## Step 5 — Homepage layout & hero (2026-10-20)
 
 **Decided:** Option 2 — Before/After-Led Hero.
