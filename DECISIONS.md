@@ -4,9 +4,31 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Site mockup restructured to folder + index.html layout (2026-10-21)
+
+Not a design decision — a housekeeping note. Davis asked to rename the `site-mockup/` files to the conventional website directory layout: each page as its own folder containing `index.html`, giving clean extensionless URLs that match the slugs in CLAUDE.md exactly.
+
+**New structure:**
+```
+site-mockup/
+  index.html                                  (was homepage-full-mockup.html)
+  house-leveling-lake-charles-la/index.html
+  house-lifting-lake-charles-la/index.html
+  foundation-repair-lake-charles-la/index.html
+  gallery/index.html
+  about/index.html
+  contact/index.html
+```
+
+The old flat `index.html` (a listing page linking to every decision-round preview) was deleted — superseded by the real homepage now living at the site root, consistent with the directory cleanup above.
+
+**What changed in every file:** internal `href`s updated to trailing-slash folder links (e.g. `gallery.html` → `../gallery/` from a nested page, or `gallery/` from the root); asset `src` paths in the six nested pages updated from `../assets/...` to `../../assets/...` (one extra directory level). Verified via local static server that every route (`/site-mockup/`, `/site-mockup/gallery/`, etc.) resolves correctly and images/links still work.
+
+---
+
 ## Directory cleanup (2026-10-21)
 
-Not a design decision — a housekeeping note. Davis asked to clean up the project directory now that every Step 1–12 decision is implemented in the live site pages (`site-mockup/homepage-full-mockup.html` and the six nav pages).
+Not a design decision — a housekeeping note. Davis asked to clean up the project directory now that every Step 1–12 decision is implemented in the live site pages (`site-mockup/index.html` and the six nav pages).
 
 **Removed:**
 - All 12 `site-mockup/step-*/` folders (48 option preview HTML files total) — the rejected and chosen alternatives from every decision round. Each decision's outcome, options, and reasoning remain fully documented below; only the rendered preview files themselves were deleted.
@@ -23,7 +45,7 @@ Not a design decision — a housekeeping note. Davis asked to clean up the proje
 
 Contact form and footer navigation merge into one cohesive dark band (no separate "Contact Us" section above it): left half is a visual-mockup form (name, phone, message, disabled submit button), right half is business info (address, phone, hours, BBB profile link) plus Services/Company nav columns, all within the same footer that appears on every page. Preview: `site-mockup/step-12-footer-contact/option-2-integrated-single-block.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in every page's footer, and site-mockup/contact.html.)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in every page's footer, and site-mockup/contact/index.html.)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Classic Separate Blocks: dedicated contact section (form + info) above a standard multi-column footer. Familiar, but takes the most vertical space and repeats phone/address in two places.
@@ -49,7 +71,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 The `/gallery` page shows a responsive card grid (1/2/3 columns by breakpoint), one card per project: a static before/after split thumbnail (left half before, right half after, divided by a thin red line), a category tag, project name, and date. Preview: `site-mockup/step-11-gallery-layout/option-1-card-grid.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/gallery.html.)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/gallery/index.html.)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Grid of Cards: scannable grid, static split thumbnail per project. *Chosen.*
@@ -69,7 +91,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 Each service page (House Leveling, House Lifting, Foundation Repair) follows the same single-column template: Hero (service name + short description + CTA) → Our Process (4 numbered steps) → Before/After (drag slider, reused from Step 6) → Trust Badges (compact row) → FAQ (accordion) → Final CTA → Footer. Preview: `site-mockup/step-10-service-page-structure/option-1-classic-scroll.html` (shown for House Leveling as the example service).
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/house-leveling-lake-charles-la.html and the other two service pages.)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/house-leveling-lake-charles-la/index.html and the other two service pages.)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Classic Long-Form Scroll: single-column, same template reused for all three service pages. *Chosen.*
@@ -89,7 +111,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 A dedicated "Why Homeowners Choose Us" section: a bordered grid of six badges (Free Estimates, Free Foundation Inspections, Workers' Comp Covered, Gentle Air Bag Lifting, Warranty on All Work, Local to Lake Charles), each with a line icon and one line of supporting copy. This formalizes the simple badge row used as a stand-in throughout every earlier step's previews. Preview: `site-mockup/step-9-trust-signals/option-1-icon-badge-grid.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/homepage-full-mockup.html and site-mockup/about.html.)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/index.html and site-mockup/about/index.html.)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Icon Badge Grid: real icon + one line of copy per badge. *Chosen.*
@@ -129,7 +151,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 A "Watch Our Work" section with a grid of video thumbnails (one per project), each with a play-button overlay and a caption. Clicking a card opens the video (lightbox reused from Option 1's pattern in this preview; final interaction can be refined when real videos exist). Preview: `site-mockup/step-7-video-presentation/option-4-card-grid.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/homepage-full-mockup.html ("Watch Our Work" section).)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/index.html ("Watch Our Work" section).)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Lightbox Play: click thumbnail → video opens in a dimmed modal overlay. Focused viewing, needs modal JS.
@@ -149,7 +171,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 A draggable vertical handle splits the before/after images; dragging it left/right reveals more of each side via CSS `clip-path`. Built with a plain `<input type="range">` under the hood for native touch/keyboard support. Preview: `site-mockup/step-6-before-after-component/option-1-drag-slider.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/homepage-full-mockup.html (hero slider) and each service page.)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/index.html (hero slider) and each service page.)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Drag Slider: draggable reveal handle. Most engaging/familiar before/after pattern. *Chosen.*
@@ -171,7 +193,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 The hero section itself is a before/after photo pair (not a generic hero photo), with a short headline above it and CTAs below. Section order: Hero (before/after pair) → Trust row → Services → More Before/After Examples teaser → Footer. No testimonial band in this layout. Preview: `site-mockup/step-5-homepage-hero/option-2-before-after-led.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/homepage-full-mockup.html (hero section).)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/index.html (hero section).)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Classic Stack: Hero → Trust → Services → Before/After teaser → Testimonial → Final CTA → Footer. Familiar/easy to build, but buries the before/after proof mid-page.
@@ -268,7 +290,7 @@ _(Option previews for this step were removed during a 2026-10-21 directory clean
 
 White header bar, logo + "ONE STOP / Construction & Leveling" lockup on the left, full nav links (House Leveling, House Lifting, Foundation Repair, Gallery, About, Contact), red pill phone-number CTA on the right. Previews: `site-mockup/step-1-header-banner/option-a-classic-white.html`.
 
-_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/homepage-full-mockup.html (header).)_
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in site-mockup/index.html (header).)_
 
 **Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - A — Classic White Bar: clean, familiar, nav fully visible on desktop, red CTA passes AA on white. *Chosen.*
