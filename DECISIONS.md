@@ -4,6 +4,30 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Step 12 — Footer & contact section (2026-10-20)
+
+**Decided:** Option 2 — Integrated Single Block.
+
+Contact form and footer navigation merge into one cohesive dark band (no separate "Contact Us" section above it): left half is a visual-mockup form (name, phone, message, disabled submit button), right half is business info (address, phone, hours, BBB profile link) plus Services/Company nav columns, all within the same footer that appears on every page. Preview: `design-previews/step-12-footer-contact/option-2-integrated-single-block.html`.
+
+**Options considered** (all four previews kept in `design-previews/step-12-footer-contact/`):
+- 1 — Classic Separate Blocks: dedicated contact section (form + info) above a standard multi-column footer. Familiar, but takes the most vertical space and repeats phone/address in two places.
+- 2 — Integrated Single Block: contact + footer merged into one band. *Chosen.*
+- 3 — Map-Forward Split: large map placeholder + compact info card, lean single-row footer below. Visually reassuring for local trust, but the map mockup is the least convincing placeholder until a real embed exists.
+- 4 — Early Contact Card + Utility Footer: compact contact card appears earlier in the page, footer stays minimal. Surfaces contact sooner, but splits "contact" into two places that could feel redundant.
+
+**Why:** No duplication of contact info, and more compact overall than a separate contact section plus a full footer. Since this footer appears on every page, it doubles as a real contact point everywhere on the site, not just boilerplate at the bottom.
+
+**Content/scope notes (unchanged from Phase 1 rules):**
+- Form fields (name, phone, message, submit button) are visual mockups only — disabled inputs, no submit action. Working form handling is explicitly Phase 2 scope.
+- No email address is shown — one hasn't been supplied yet (see the Step 0 "owner must confirm/supply" list).
+- BBB profile is linked but no rating is stated (rating still unconfirmed).
+- Map is a placeholder box, not a real embed (Phase 2).
+
+**This was the last item in the CLAUDE.md decision order (color palette → footer/contact).** All 11 post-header decisions plus the header banner itself are now recorded above.
+
+---
+
 ## Step 11 — Gallery layout (2026-10-20)
 
 **Decided:** Option 1 — Grid of Cards.
