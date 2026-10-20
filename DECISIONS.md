@@ -4,13 +4,28 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Directory cleanup (2026-10-21)
+
+Not a design decision — a housekeeping note. Davis asked to clean up the project directory now that every Step 1–12 decision is implemented in the live site pages (`design-previews/homepage-full-mockup.html` and the six nav pages).
+
+**Removed:**
+- All 12 `design-previews/step-*/` folders (48 option preview HTML files total) — the rejected and chosen alternatives from every decision round. Each decision's outcome, options, and reasoning remain fully documented below; only the rendered preview files themselves were deleted.
+- `assets/derived/logo-square-black.png` — never actually used in any preview, including rejected ones.
+- `assets/derived/logo-circle-transparent.png` — used only in the now-deleted `step-1-header-banner/` previews; superseded by `logo-roofline.png` per the Step 1 revision.
+
+**Not touched:** `before-after-pics/` originals, `logo/Onestop Logo.png` original, `assets/derived/before-after/` (in use), `assets/derived/logo-roofline.png` (in use), all live site pages, this file.
+
+---
+
 ## Step 12 — Footer & contact section (2026-10-20)
 
 **Decided:** Option 2 — Integrated Single Block.
 
 Contact form and footer navigation merge into one cohesive dark band (no separate "Contact Us" section above it): left half is a visual-mockup form (name, phone, message, disabled submit button), right half is business info (address, phone, hours, BBB profile link) plus Services/Company nav columns, all within the same footer that appears on every page. Preview: `design-previews/step-12-footer-contact/option-2-integrated-single-block.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-12-footer-contact/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in every page's footer, and design-previews/contact.html.)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Classic Separate Blocks: dedicated contact section (form + info) above a standard multi-column footer. Familiar, but takes the most vertical space and repeats phone/address in two places.
 - 2 — Integrated Single Block: contact + footer merged into one band. *Chosen.*
 - 3 — Map-Forward Split: large map placeholder + compact info card, lean single-row footer below. Visually reassuring for local trust, but the map mockup is the least convincing placeholder until a real embed exists.
@@ -34,7 +49,9 @@ Contact form and footer navigation merge into one cohesive dark band (no separat
 
 The `/gallery` page shows a responsive card grid (1/2/3 columns by breakpoint), one card per project: a static before/after split thumbnail (left half before, right half after, divided by a thin red line), a category tag, project name, and date. Preview: `design-previews/step-11-gallery-layout/option-1-card-grid.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-11-gallery-layout/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in design-previews/gallery.html.)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Grid of Cards: scannable grid, static split thumbnail per project. *Chosen.*
 - 2 — Full-Width Stacked Showcase: each project gets its own full-width interactive drag-slider, stacked vertically. Maximum impact per photo, but a long page once there are many projects.
 - 3 — Filterable Masonry: Pinterest-style grid with category filter buttons (All / House Leveling / House Lifting / Foundation Repair / Additional Work). Most scalable, but most complex to build and mixes single photos with before/after pairs less consistently.
@@ -52,7 +69,9 @@ The `/gallery` page shows a responsive card grid (1/2/3 columns by breakpoint), 
 
 Each service page (House Leveling, House Lifting, Foundation Repair) follows the same single-column template: Hero (service name + short description + CTA) → Our Process (4 numbered steps) → Before/After (drag slider, reused from Step 6) → Trust Badges (compact row) → FAQ (accordion) → Final CTA → Footer. Preview: `design-previews/step-10-service-page-structure/option-1-classic-scroll.html` (shown for House Leveling as the example service).
 
-**Options considered** (all four previews kept in `design-previews/step-10-service-page-structure/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in design-previews/house-leveling-lake-charles-la.html and the other two service pages.)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Classic Long-Form Scroll: single-column, same template reused for all three service pages. *Chosen.*
 - 2 — Sidebar + Anchor Navigation: sticky sidebar (desktop) / horizontal tab bar (mobile) with jump links to each section. Discussed as the strongest option for full desktop-width use and dedicated mobile navigation, but rejected for the added build complexity of keeping a sidebar, mobile tab bar, and matching anchor IDs in sync across all three service pages.
 - 3 — Process-First Hero: the hero itself is the 4-step process visual. Rejected — risks the three service pages feeling repetitive since the leveling/lifting/foundation-repair processes are fairly similar.
@@ -70,7 +89,9 @@ Each service page (House Leveling, House Lifting, Foundation Repair) follows the
 
 A dedicated "Why Homeowners Choose Us" section: a bordered grid of six badges (Free Estimates, Free Foundation Inspections, Workers' Comp Covered, Gentle Air Bag Lifting, Warranty on All Work, Local to Lake Charles), each with a line icon and one line of supporting copy. This formalizes the simple badge row used as a stand-in throughout every earlier step's previews. Preview: `design-previews/step-9-trust-signals/option-1-icon-badge-grid.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-9-trust-signals/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in design-previews/homepage-full-mockup.html and design-previews/about.html.)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Icon Badge Grid: real icon + one line of copy per badge. *Chosen.*
 - 2 — Horizontal Scroll Strip: compact pill badges in a thin scrollable row. Minimal vertical space, but badges past the first few may go unseen if visitors don't scroll it.
 - 3 — Seal/Badge Row: circular "medallion" badges (most visually credible/official-looking); includes a BBB badge that links out without stating a rating. Needed a mid-build fix — an attempted hexagon shape via CSS `clip-path` rendered as a thin sliver, replaced with concentric-circle medallions instead.
@@ -88,7 +109,9 @@ A dedicated "Why Homeowners Choose Us" section: a bordered grid of six badges (F
 
 Tapping the hamburger expands a panel directly below the mobile header (same visual style as a basic dropdown), but the panel is absolutely positioned over a dimmed backdrop instead of pushing page content down — tapping the backdrop or the hamburger again closes it, and the page never shifts. Preview: `design-previews/step-8-nav-phone-button/option-2-dropdown.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-8-nav-phone-button/`, each in a 390px-wide phone frame):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in every page in design-previews/ (mobile dropdown nav).)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Slide-Out Drawer: hamburger opens a full-height side drawer with a dimmed backdrop. Most familiar pattern, but a bigger motion/build than needed here.
 - 2 — Dropdown Accordion: panel below the header. *Chosen*, revised per Davis's request (see below).
 - 3 — Sticky Bottom Call Bar: a persistent call button fixed to the bottom of the screen while scrolling. Rejected — permanently uses screen real estate and adds a second sticky element to keep in sync with the header.
@@ -106,7 +129,9 @@ Tapping the hamburger expands a panel directly below the mobile header (same vis
 
 A "Watch Our Work" section with a grid of video thumbnails (one per project), each with a play-button overlay and a caption. Clicking a card opens the video (lightbox reused from Option 1's pattern in this preview; final interaction can be refined when real videos exist). Preview: `design-previews/step-7-video-presentation/option-4-card-grid.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-7-video-presentation/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in design-previews/homepage-full-mockup.html ("Watch Our Work" section).)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Lightbox Play: click thumbnail → video opens in a dimmed modal overlay. Focused viewing, needs modal JS.
 - 2 — Inline Expand: click thumbnail → video plays in place, no overlay. Simplest to build, but content shifts down when it expands.
 - 3 — Autoplay Background Loop: muted ambient loop plays automatically behind a section. Most dynamic, but adds page weight and needs a `prefers-reduced-motion` fallback.
@@ -124,7 +149,9 @@ A "Watch Our Work" section with a grid of video thumbnails (one per project), ea
 
 A draggable vertical handle splits the before/after images; dragging it left/right reveals more of each side via CSS `clip-path`. Built with a plain `<input type="range">` under the hood for native touch/keyboard support. Preview: `design-previews/step-6-before-after-component/option-1-drag-slider.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-6-before-after-component/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in design-previews/homepage-full-mockup.html (hero slider) and each service page.)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Drag Slider: draggable reveal handle. Most engaging/familiar before/after pattern. *Chosen.*
 - 2 — Side-by-Side: both photos shown at once, no JS. Simplest to build, but each image is smaller on narrow phones.
 - 3 — Toggle: tap Before/After buttons to swap one full-size image. Max image impact on mobile, but requires an active tap to see the payoff.
@@ -144,7 +171,9 @@ A draggable vertical handle splits the before/after images; dragging it left/rig
 
 The hero section itself is a before/after photo pair (not a generic hero photo), with a short headline above it and CTAs below. Section order: Hero (before/after pair) → Trust row → Services → More Before/After Examples teaser → Footer. No testimonial band in this layout. Preview: `design-previews/step-5-homepage-hero/option-2-before-after-led.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-5-homepage-hero/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in design-previews/homepage-full-mockup.html (hero section).)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Classic Stack: Hero → Trust → Services → Before/After teaser → Testimonial → Final CTA → Footer. Familiar/easy to build, but buries the before/after proof mid-page.
 - 2 — Before/After-Led Hero: the hero *is* a before/after pair. *Chosen.*
 - 3 — Dual-Path Hero: hero splits into "Need Help Now" (call) vs. "Just Looking" (see work) paths. Serves both visitor mindsets, but dilutes the single clearest CTA.
@@ -162,7 +191,9 @@ The hero section itself is a before/after photo pair (not a generic hero photo),
 
 Square/near-square corners (rounded-sm at most — buttons included), thin 1px borders used for depth/separation instead of drop shadows, tight precise spacing, straight section dividers (hairline borders, not curves/angles). Preview: `design-previews/step-4-style-mood/option-1-sharp-structural.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-4-style-mood/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in every page in design-previews/ (mood applied throughout).)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Sharp & Structural: square corners, borders not shadows, tight spacing. Technical/engineered feel, fastest/simplest to build consistently. *Chosen.*
 - 2 — Soft & Approachable: rounded corners, soft shadows, generous whitespace. Calm and reassuring, pairs naturally with the serif headings, but undersells structural seriousness a bit.
 - 3 — Bold Editorial: oversized headlines, full-bleed photography, almost no UI chrome. Most striking and puts before/after photos front and center, but hardest to build/keep consistent and least scannable for quick facts.
@@ -178,7 +209,9 @@ Square/near-square corners (rounded-sm at most — buttons included), thin 1px b
 
 Headings use Roboto Slab (bold, weight 700), body copy uses Open Sans (weight 400/600). Preview: `design-previews/step-3-typography/option-3-classic-trust.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-3-typography/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in every page in design-previews/ (type applied throughout).)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Bold Industrial (Oswald + Inter): condensed, heavy, uppercase headings echoing the logo's bold slanted wordmark. Strong/authoritative, but condensed type loses legibility in long headlines.
 - 2 — Clean Modern (Inter, single family): one font family, different weights. Very legible and fast-loading, but least distinctive/branded of the four.
 - 3 — Classic Trust (Roboto Slab + Open Sans): serif headings read as established/reputable. *Chosen.*
@@ -195,6 +228,8 @@ Headings use Roboto Slab (bold, weight 700), body copy uses Open Sans (weight 40
 **Decided:** Option 3 — Steel Blue-Gray Secondary.
 
 Core brand colors stay black `#020202` / white `#FDFDFD` / red `#E7030A` (red reserved for primary CTAs and key accents). Adds one new hue, a muted steel blue-gray, for secondary buttons, icons, and section backgrounds. Preview: `design-previews/step-2-color-palette/option-3-steel-blue-gray.html`.
+
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in every page in design-previews/ (palette applied throughout).)_
 
 **Palette tokens:**
 | Token | Hex |
@@ -217,7 +252,7 @@ Core brand colors stay black `#020202` / white `#FDFDFD` / red `#E7030A` (red re
 - white on red (primary CTA): 4.68:1 (AA pass — keep CTA text bold/≥16px)
 - steel-900 headings on white: 15+:1 (AAA pass)
 
-**Options considered** (all four previews kept in `design-previews/step-2-color-palette/`):
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - 1 — Pure Monochrome + Red Accent: true neutral grays, red as the only hue. Cleanest/most consistent with the logo, but can read cold/corporate.
 - 2 — Warm Construction Neutrals: same core with grays shifted warm (tan/stone). More grounded/approachable, but more prone to looking muddy if not tuned well.
 - 3 — Steel Blue-Gray Secondary: adds the steel blue-gray secondary hue. *Chosen.*
@@ -233,7 +268,9 @@ Core brand colors stay black `#020202` / white `#FDFDFD` / red `#E7030A` (red re
 
 White header bar, logo + "ONE STOP / Construction & Leveling" lockup on the left, full nav links (House Leveling, House Lifting, Foundation Repair, Gallery, About, Contact), red pill phone-number CTA on the right. Previews: `design-previews/step-1-header-banner/option-a-classic-white.html`.
 
-**Options considered** (all four previews kept in `design-previews/step-1-header-banner/`):
+_(Option previews for this step were removed during a 2026-10-21 directory cleanup, now that the decision is implemented in the live pages; all four options are still described above. This decision now lives in design-previews/homepage-full-mockup.html (header).)_
+
+**Options considered** (all four were compared; previews removed in cleanup, decisions below):
 - A — Classic White Bar: clean, familiar, nav fully visible on desktop, red CTA passes AA on white. *Chosen.*
 - B — Bold Black Bar: matches the logo's own black-square badge directly, more premium tone, but red-on-black text only passes AA at large/bold sizes.
 - C — Two-Tier Utility + Nav Bar: trust signals (free estimate, hours) above the main bar, but overlaps with the dedicated trust-signals section planned later (decision #8) and costs more mobile vertical space.
@@ -241,7 +278,7 @@ White header bar, logo + "ONE STOP / Construction & Leveling" lockup on the left
 
 **Why:** Clarity and immediate scannability for homeowners (often on mobile, often stressed about visible home damage) outweighed the bolder branding of Option B or the extra trust messaging of Option C. Mobile nav collapse behavior and final typography/spacing still need to be built out — this decision fixes the *structure and tone* of the bar, not final pixel-level styling.
 
-**Assets produced:** `assets/derived/logo-circle-transparent.png` (circle-cropped, transparent outside the disc, metadata stripped) and `assets/derived/logo-square-black.png` (full badge, metadata stripped) — both derived from `logo/Onestop Logo.png`, original untouched. Logo PNG confirmed to carry no EXIF data (consistent with Step 0 findings).
+**Assets produced:** `assets/derived/logo-circle-transparent.png` (circle-cropped, transparent outside the disc, metadata stripped) and `assets/derived/logo-square-black.png` (full badge, metadata stripped) — both derived from `logo/Onestop Logo.png`, original untouched. Logo PNG confirmed to carry no EXIF data (consistent with Step 0 findings). _(Both files were deleted during the 2026-10-21 directory cleanup once `logo-roofline.png` — see the Revision note below — became the only logo asset actually used on any page.)_
 
 **Revision (same day):** Davis asked to drop the circular badge entirely and instead place just the black roofline graphic above the "ONE STOP" wordmark. Extracted `assets/derived/logo-roofline.png` — the roofline stroke only, cropped from the original logo and keyed to transparent (white background removed, black stroke kept), no circle/square framing. `option-a-classic-white.html` updated to this treatment; it's now the current state of the chosen header.
 
