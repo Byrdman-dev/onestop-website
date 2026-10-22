@@ -4,6 +4,22 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Blue House Siding & Sill Rebuild photo pair cleared and placed (2026-10-22)
+
+Not a design decision — a photo-clearance and asset-swap record, same process as the Cabin Lift & Move and Step 6 Tan House pairs. Davis asked to replace the placeholder thumbnail on the homepage's "More Recent Projects" → "Blue House Siding & Sill Rebuild" card with real photos from `before-after-pics/01_Blue house siding and sill rebuild (Feb 2026)/`, using `before_1` and `after_1`.
+
+**Privacy review:** Both frames originally showed a readable house-number plaque ("619") on the porch post next to the front door, in nearly the same spot in both shots — not croppable without cutting the door (the main subject) out of frame. Flagged to Davis. Davis edited the original `before_1`/`after_1` HEIC files directly to erase the numbers; re-converting fresh from those files confirmed the post is now bare (just nail holes / one leftover screw) in both, so this flag no longer applies to either.
+
+`before_1` separately showed a bystander on the neighboring house's porch (blurry but a visible person, not fully anonymous). Davis approved cropping this out.
+
+**What was done:** `before_1` was cropped to remove the right-hand portion of the frame containing the neighbor's porch and the bystander (pixels physically removed, not obscured). Both `before_1` and `after_1` were converted from HEIC to JPEG, resized to 1400px wide, and saved with metadata stripped (confirmed no EXIF on output).
+
+**Assets produced:** `assets/derived/before-after/01-blue-house-siding-before.jpg` and `...-after.jpg` (mirrored into `public/assets/derived/before-after/`). Note: this is the first case where the `before-after-pics/` originals themselves were edited (by Davis, to erase the house number) rather than left untouched — a deliberate exception to the usual "never modify originals" rule, made directly by Davis rather than by Claude.
+
+**Wired into:** `src/pages/index.astro`, the second `galleryTeaser` entry (the "Blue House Siding & Sill Rebuild" `GalleryCard`). All three "More Recent Projects" cards now use real, cleared photos.
+
+---
+
 ## Cabin Lift & Move photo pair cleared and placed (2026-10-22)
 
 Not a design decision — a photo-clearance and asset-swap record, same process as the Step 6 Tan House pair. Davis asked to replace the placeholder thumbnail on the homepage's "More Recent Projects" → "Cabin Lifted Onto Trailer for Move" card with real photos from `before-after-pics/11_Cabin lifted onto trailer for move (Jun 2023)/`.
