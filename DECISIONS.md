@@ -4,6 +4,25 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Cabin Lift & Move photo pair cleared and placed (2026-10-22)
+
+Not a design decision — a photo-clearance and asset-swap record, same process as the Step 6 Tan House pair. Davis asked to replace the placeholder thumbnail on the homepage's "More Recent Projects" → "Cabin Lifted Onto Trailer for Move" card with real photos from `before-after-pics/11_Cabin lifted onto trailer for move (Jun 2023)/`.
+
+**Privacy review (required before use, per CLAUDE.md):** Both candidate "before" frames were checked at full resolution before any derived copy was made:
+- `before_1_...IMG_8295.HEIC` — showed a readable house-number plaque ("415") on a deck post, plus a bystander visible under the deck (face partly visible). Not used.
+- `before_2_...IMG_8302.HEIC` — showed a neighboring house in the background with a parked car and a visible (blurry) rear license plate, plus a small, distant hard-hat-wearing worker partially obscured in shadow under the deck.
+- `after_1_...IMG_8359.HEIC` and `after_3_...IMG_8390.HEIC` (both show the cabin loaded on the flatbed trailer) — checked, no plates/house numbers/faces found in either.
+
+Flagged to Davis; **Davis approved `before_2` + `after_1`, cropped as needed.**
+
+**What was done:** `before_2` was cropped to physically remove the right-hand strip of the frame containing the neighbor's house and car (not just visually obscured — those pixels no longer exist in the derived file), converted from HEIC to JPEG, resized to 1400px wide, and saved with metadata stripped (confirmed no EXIF on the output file). The small distant worker was left in frame — consistent with the Step 0 precedent that small/unidentifiable background figures don't require flagging. `after_1` needed no crop, same conversion/resize/strip process applied.
+
+**Assets produced:** `assets/derived/before-after/11-cabin-trailer-move-before.jpg` and `...-after.jpg` (mirrored into `public/assets/derived/before-after/` per the existing dev-server pattern). Originals in `before-after-pics/` untouched.
+
+**Wired into:** `src/pages/index.astro`, the third `galleryTeaser` entry (the "Cabin Lifted Onto Trailer for Move" `GalleryCard`). The other two cards in that section ("Tan House Full Leveling", "Blue House Siding & Sill Rebuild") still reuse the Tan House photo pair as a placeholder — unchanged, still need their own real photos and clearance pass.
+
+---
+
 ## GitHub Pages deployment configured (2026-10-20)
 
 Not a design decision — a build/deployment milestone. Davis created the GitHub repo `Byrdman-dev/onestop-website`, pushed the existing commit history to it, then asked how to deploy to GitHub Pages. Offered a choice between the default `github.io` subpath URL and a custom domain; **Davis chose the default subpath URL** (`https://byrdman-dev.github.io/onestop-website/`).
