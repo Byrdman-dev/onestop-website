@@ -1,0 +1,5 @@
+   {
+     "name": "www",
+     "compatibility_date": "2026-10-23",
+     "assets": { "directory": "./dist" }
+   }
