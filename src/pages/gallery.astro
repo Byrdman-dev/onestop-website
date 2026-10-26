@@ -3,17 +3,42 @@ import Layout from "../layouts/Layout.astro";
 import GalleryCard from "../components/GalleryCard.astro";
 import { asset } from "../lib/site";
 
-const beforeSrc = asset("assets/derived/before-after/02-tan-house-leveling-before.jpg");
-const afterSrc = asset("assets/derived/before-after/02-tan-house-leveling-after.jpg");
-
-// Placeholder: all cards reuse the one approved before/after pair (Tan House Full Leveling)
-// until each project's own photos are cleared for use.
 const projects = [
-  { category: "House Leveling", title: "Tan House Full Leveling", date: "Feb–Apr 2025", beforeSrc, afterSrc },
-  { category: "Foundation Repair", title: "Blue House Siding & Sill Rebuild", date: "Feb 2026", beforeSrc, afterSrc },
-  { category: "House Lifting", title: "Cabin Lifted Onto Trailer for Move", date: "Jun 2023", beforeSrc, afterSrc },
-  { category: "Additional Work", title: "Mobile Home Deck, Ramp & Porch Roof", date: "Oct 2025", beforeSrc, afterSrc },
-  { category: "Additional Work", title: "Porch & Ramp Build", date: "Feb 2025", beforeSrc, afterSrc },
+  {
+    category: "House Leveling",
+    title: "Tan House Full Leveling",
+    date: "Feb–Apr 2025",
+    beforeSrc: asset("assets/derived/before-after/02-tan-house-leveling-before.jpg"),
+    afterSrc: asset("assets/derived/before-after/02-tan-house-leveling-after.jpg"),
+  },
+  {
+    category: "Foundation Repair",
+    title: "Blue House Siding & Sill Rebuild",
+    date: "Feb 2026",
+    beforeSrc: asset("assets/derived/before-after/01-blue-house-siding-before.jpg"),
+    afterSrc: asset("assets/derived/before-after/01-blue-house-siding-after.jpg"),
+  },
+  {
+    category: "House Lifting",
+    title: "Cabin Lifted Onto Trailer for Move",
+    date: "Jun 2023",
+    beforeSrc: asset("assets/derived/before-after/11-cabin-trailer-move-before.jpg"),
+    afterSrc: asset("assets/derived/before-after/11-cabin-trailer-move-after.jpg"),
+  },
+  {
+    category: "Additional Work",
+    title: "Mobile Home Deck, Ramp & Porch Roof",
+    date: "Oct 2025",
+    beforeSrc: asset("assets/derived/before-after/06-mobile-home-deck-ramp-porch-before.jpg"),
+    afterSrc: asset("assets/derived/before-after/06-mobile-home-deck-ramp-porch-after.jpg"),
+  },
+  {
+    category: "Additional Work",
+    title: "Porch & Ramp Build",
+    date: "Feb 2025",
+    beforeSrc: asset("assets/derived/before-after/14-porch-ramp-build-before.jpg"),
+    afterSrc: asset("assets/derived/before-after/14-porch-ramp-build-after.jpg"),
+  },
 ];
 ---
 

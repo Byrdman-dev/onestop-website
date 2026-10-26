@@ -1,4 +1,6 @@
 ---
+import BeforeAfterSlider from "./BeforeAfterSlider.astro";
+
 interface Props {
   category: string;
   title: string;
@@ -8,43 +10,20 @@ interface Props {
   href?: string;
 }
 
-const { category, title, date, beforeSrc, afterSrc, href = "#" } = Astro.props;
+const { category, title, date, beforeSrc, afterSrc, href } = Astro.props;
+const Footer = href ? "a" : "div";
 ---
 
-<a href={href} class="split-thumbnail-card block bg-white border border-steel-200 hover:border-brand-red transition">
-  <div class="split-thumbnail aspect-[4/3]">
-    <img src={beforeSrc} alt={`${title} — before`} />
-    <img class="split-thumbnail-after" src={afterSrc} alt={`${title} — after`} />
-    <div class="split-thumbnail-divider"></div>
-  </div>
-  <div class="p-4">
+<div class="bg-white border border-steel-200">
+  <BeforeAfterSlider
+    beforeSrc={beforeSrc}
+    beforeAlt={`${title} — before`}
+    afterSrc={afterSrc}
+    afterAlt={`${title} — after`}
+  />
+  <Footer href={href} class={`block p-4 ${href ? "hover:bg-steel-50 transition" : ""}`}>
     <p class="text-[10px] font-bold uppercase tracking-widest text-brand-red mb-1">{category}</p>
     <p class="font-heading font-bold text-brand-black">{title}</p>
     <p class="text-xs text-steel-600">{date}</p>
-  </div>
-</a>
-
-<style>
-  .split-thumbnail {
-    position: relative;
-    overflow: hidden;
-  }
-  .split-thumbnail img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .split-thumbnail-after {
-    clip-path: inset(0 0 0 50%);
-  }
-  .split-thumbnail-divider {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background: var(--color-brand-red);
-  }
-</style>
+  </Footer>
+</div>

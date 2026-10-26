@@ -4,6 +4,26 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Gallery cards made interactive; all 5 projects given real photos (2026-10-26)
+
+**Revisits Step 11 (Gallery layout).** Davis asked to make the `/gallery` grid cards interactive (matching the Step 6 drag-slider) instead of the static split-thumbnail Step 11 chose, and to give each of the 5 gallery cards its own correct before/after photo pair instead of all five reusing the Tan House placeholder.
+
+**What changed:**
+- `GalleryCard.astro` now renders a `BeforeAfterSlider` (draggable) instead of the static split-thumbnail `<div>`. The card is no longer a single `<a>` wrapper (would conflict with the slider's own drag/range input) — only the text footer below the image is a link, via an optional `href` prop. On `/gallery` itself no `href` is passed (no detail pages exist yet), so the footer is a plain `<div>`. On the homepage "More Recent Projects" teaser, `href={routes.gallery}` is still passed, so clicking the title/date still navigates to `/gallery`.
+- `gallery.astro` now gives each of the 5 projects its own real `beforeSrc`/`afterSrc` instead of all reusing the Tan House pair.
+
+**New photo pairs produced** (two projects that had no cleared photos yet):
+- **Mobile Home Deck, Ramp & Porch Roof** (`before-after-pics/06_.../`): `before_1` + `after_2`. Privacy check: initial low-res read misread a window reflection and a decorative door decal (rabbit/bird silhouette logo) as a possible house number — re-checked at full resolution and confirmed neither is an address number; false alarm. Content note (not a privacy issue): none of the 4 `after` photos show a fully finished porch roof — `after_1`–`after_3` show the roof trusses still open/unshingled, `after_4` is a zoomed roofing-panel shot with no house context. Davis chose `after_2` (deck/ramp structure complete, roof visibly mid-progress) as an acceptable stand-in rather than waiting for a finished-roof photo. Davis separately re-exported/replaced several files in this folder himself before the final pick; re-checked EXIF and content on the replacement files, same conclusion.
+- **Porch & Ramp Build** (`before-after-pics/14_.../`): `before_1` + `after_1` — same camera angle, no privacy issues, clean finished result. Best pair, no open questions.
+
+**Assets produced:** `assets/derived/before-after/06-mobile-home-deck-ramp-porch-{before,after}.jpg` and `14-porch-ramp-build-{before,after}.jpg` (mirrored into `public/assets/derived/before-after/`), 1400px wide, metadata stripped, converted from HEIC.
+
+**Tooling note:** `sharp` (already in the dependency tree via Astro) cannot decode HEIC on this machine — prebuilt binaries dropped bundled HEIF/HEVC decode support. Added `heic-convert` (devDependency, ~9MB on disk via its `libheif-js` dependency) to do the HEIC→JPEG conversion; falls under the project's pre-approved "small image utilities for prepping assets" allowance, confirmed with Davis before installing.
+
+**Wired into:** `src/pages/gallery.astro` (all 5 cards), `src/components/GalleryCard.astro`, `src/pages/index.astro` ("More Recent Projects" teaser, unchanged photos but now interactive via the updated component).
+
+---
+
 ## Blue House Siding & Sill Rebuild photo pair cleared and placed (2026-10-22)
 
 Not a design decision — a photo-clearance and asset-swap record, same process as the Cabin Lift & Move and Step 6 Tan House pairs. Davis asked to replace the placeholder thumbnail on the homepage's "More Recent Projects" → "Blue House Siding & Sill Rebuild" card with real photos from `before-after-pics/01_Blue house siding and sill rebuild (Feb 2026)/`, using `before_1` and `after_1`.
