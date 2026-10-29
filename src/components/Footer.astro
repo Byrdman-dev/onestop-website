@@ -5,53 +5,35 @@ const phoneHref = "tel:+13373097301";
 ---
 
 <footer class="bg-brand-black text-steel-200 border-t-2 border-brand-red">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 lg:grid-cols-2 gap-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 sm:grid-cols-3 gap-10">
     <div>
-      <h2 class="font-heading text-xl font-bold text-white mb-4">Get a Free Estimate</h2>
-      <form class="space-y-3">
-        <input
-          type="text"
-          disabled
-          placeholder="Your name"
-          class="w-full border border-steel-700 bg-steel-800 px-3 py-2 text-sm text-white placeholder:text-steel-400"
-        />
-        <input
-          type="text"
-          disabled
-          placeholder="(337) 555-0100"
-          class="w-full border border-steel-700 bg-steel-800 px-3 py-2 text-sm text-white placeholder:text-steel-400"
-        />
-        <textarea
-          disabled
-          placeholder="Tell us what's going on with your house..."
-          rows="3"
-          class="w-full border border-steel-700 bg-steel-800 px-3 py-2 text-sm text-white placeholder:text-steel-400"
-        ></textarea>
-        <button type="button" disabled class="w-full bg-brand-red text-white font-bold py-3 rounded-sm opacity-90 cursor-not-allowed">
-          Send Message
-        </button>
-        <p class="text-xs text-steel-400">Visual mockup only — form isn't wired up yet (Phase 2).</p>
-      </form>
+      <h2 class="font-heading text-xl font-bold text-white mb-3">Get a Free Estimate</h2>
+      <p class="text-sm text-steel-300 mb-4">Call now for a free, no-obligation estimate on your project.</p>
+      <a
+        href={phoneHref}
+        class="inline-flex items-center gap-2 w-full justify-center bg-brand-red text-white font-bold py-3 rounded-sm hover:bg-brand-red-hover transition"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.7 3.6.7.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.7 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+        (337) 309-7301
+      </a>
     </div>
-    <div class="grid grid-cols-2 gap-8">
-      <div>
-        <p class="font-heading font-bold text-white mb-2">One Stop Construction &amp; Leveling</p>
-        <p class="text-sm">31 B Rd, Lake Charles, LA 70601</p>
-        <p class="text-sm mb-1">
-          <a href={phoneHref} class="text-brand-red hover:text-brand-red-hover">(337) 309-7301</a>
-        </p>
-        <p class="text-sm">Mon–Sat 7am–7pm</p>
-        <p class="text-sm mt-2"><a href="#" class="hover:text-white">BBB Profile ↗</a></p>
-      </div>
-      <div>
-        <p class="font-semibold text-white mb-2">Services</p>
-        <p class="text-sm"><a href={routes.houseLeveling} class="hover:text-white">House Leveling</a></p>
-        <p class="text-sm"><a href={routes.houseLifting} class="hover:text-white">House Lifting</a></p>
-        <p class="text-sm"><a href={routes.foundationRepair} class="hover:text-white">Foundation Repair</a></p>
-        <p class="font-semibold text-white mt-4 mb-2">Company</p>
-        <p class="text-sm"><a href={routes.gallery} class="hover:text-white">Gallery</a></p>
-        <p class="text-sm"><a href={routes.about} class="hover:text-white">About</a></p>
-      </div>
+    <div>
+      <p class="font-heading font-bold text-white mb-2">One Stop Construction &amp; Leveling</p>
+      <p class="text-sm">31 B Rd, Lake Charles, LA 70601</p>
+      <p class="text-sm mb-1">
+        <a href={phoneHref} class="text-brand-red hover:text-brand-red-hover">(337) 309-7301</a>
+      </p>
+      <p class="text-sm">Mon–Sat 7am–7pm</p>
+      <p class="text-sm mt-2"><a href="#" class="hover:text-white">BBB Profile ↗</a></p>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-2">Services</p>
+      <p class="text-sm"><a href={routes.houseLeveling} class="hover:text-white">House Leveling</a></p>
+      <p class="text-sm"><a href={routes.houseLifting} class="hover:text-white">House Lifting</a></p>
+      <p class="text-sm"><a href={routes.foundationRepair} class="hover:text-white">Foundation Repair</a></p>
+      <p class="font-semibold text-white mt-4 mb-2">Company</p>
+      <p class="text-sm"><a href={routes.gallery} class="hover:text-white">Gallery</a></p>
+      <p class="text-sm"><a href={routes.about} class="hover:text-white">About</a></p>
     </div>
   </div>
   <div class="border-t border-steel-700 text-center text-xs py-4 text-steel-400">

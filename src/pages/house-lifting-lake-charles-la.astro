@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
 import ProcessSteps from "../components/ProcessSteps.astro";
 import TrustBadgesCompact from "../components/TrustBadgesCompact.astro";
-import Faq from "../components/Faq.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 import { routes, asset } from "../lib/site";
 
@@ -16,24 +15,8 @@ const steps = [
 
 const badges = [
   { title: "Free Estimates", description: "No obligation" },
-  { title: "Workers' Comp", description: "Fully covered crews" },
   { title: "Controlled Lifting", description: "Slow and even" },
   { title: "Warranty", description: "On all work" },
-];
-
-const faqItems = [
-  {
-    question: "How high can a house be lifted?",
-    answer: "The right height depends on your goals — flood protection, foundation access, or added space below — and will be discussed during your free inspection.",
-  },
-  {
-    question: "Do I need permits to lift my house?",
-    answer: "Permit requirements vary by project and location. We'll go over what applies to your home during the inspection.",
-  },
-  {
-    question: "Can lifting be combined with foundation repair?",
-    answer: "Yes — many lifting projects address foundation issues at the same time. We'll cover this as part of your free estimate.",
-  },
 ];
 ---
 
@@ -68,6 +51,5 @@ const faqItems = [
   </section>
 
   <TrustBadgesCompact badges={badges} />
-  <Faq items={faqItems} />
   <CtaBanner heading="Ready for a free inspection?" />
 </Layout>

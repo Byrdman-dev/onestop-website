@@ -4,6 +4,21 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Workers' comp mentions, FAQ section, and footer contact form removed (2026-10-29)
+
+Not an options-round decision — a direct content-removal request from Davis, applied site-wide.
+
+**Removed:**
+- All "workers' comp" mentions: the "Workers' Comp Covered" trust badge (`TrustBadges.astro`, shown on homepage/about via `TrustBadges`), the "Workers' Comp" compact badge on all 3 service pages (`TrustBadgesCompact` badge arrays), and the "every crew on site is covered by workers' comp" sentence on `/about`.
+- The "Common Questions" FAQ section (`Faq.astro` component) from all 3 service pages — `house-leveling-lake-charles-la.astro`, `house-lifting-lake-charles-la.astro`, `foundation-repair-lake-charles-la.astro` — including their `faqItems` data arrays. `Faq.astro` itself was left in place (unimported) in case it's wanted back.
+- The disabled visual-mockup contact form from the shared `Footer.astro` (appeared on every page). Replaced with a "Get a Free Estimate" heading + a call-to-call button (`tel:+13373097301`) in the same footer column.
+
+**Reorganized:** the footer's remaining content (company info/address/hours/BBB link, Services links, Company links) moved from a single 2-column `grid-cols-2` block squeezed next to the form into its own two columns in a 3-column footer grid (`Get a Free Estimate` / `Company info` / `Services + Company`), so nothing was dropped, just given its own space.
+
+**Backup for later restore:** the complete pre-change `Footer.astro` (form, full markup, and surrounding layout exactly as it looked) is preserved at `src/components/_archive/Footer.with-contact-form.astro` — not imported anywhere, safe to ignore for the build, there purely so the form can be restored wholesale later if wanted.
+
+**Not touched:** `site-mockup/*.html` static reference files still show the old workers' comp badges, FAQ sections, and footer form — Davis didn't ask to change the approved mockup, only the live Astro build. Flag if the mockup should be kept in sync going forward.
+
 ## Gallery cards made interactive; all 5 projects given real photos (2026-10-26)
 
 **Revisits Step 11 (Gallery layout).** Davis asked to make the `/gallery` grid cards interactive (matching the Step 6 drag-slider) instead of the static split-thumbnail Step 11 chose, and to give each of the 5 gallery cards its own correct before/after photo pair instead of all five reusing the Tan House placeholder.

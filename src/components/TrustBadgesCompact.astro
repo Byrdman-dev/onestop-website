@@ -12,7 +12,7 @@ const { badges } = Astro.props;
 ---
 
 <section class="bg-white border-b border-steel-200">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-2 sm:grid-cols-4 gap-px bg-steel-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 sm:grid-cols-3 gap-px bg-steel-200">
     {badges.map((badge) => (
       <div class="bg-white p-5 text-center">
         <p class="font-heading font-bold text-brand-black text-sm mb-1">{badge.title}</p>

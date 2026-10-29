@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
 import ProcessSteps from "../components/ProcessSteps.astro";
 import TrustBadgesCompact from "../components/TrustBadgesCompact.astro";
-import Faq from "../components/Faq.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 import { routes, asset } from "../lib/site";
 
@@ -17,23 +16,7 @@ const steps = [
 const badges = [
   { title: "Free Estimates", description: "No obligation" },
   { title: "Free Inspections", description: "Foundation checks" },
-  { title: "Workers' Comp", description: "Fully covered crews" },
   { title: "Warranty", description: "On all work" },
-];
-
-const faqItems = [
-  {
-    question: "What causes foundation damage?",
-    answer: "Foundation issues are often caused by soil movement, drainage problems, or age-related settling. Your free inspection will identify the specific cause for your home.",
-  },
-  {
-    question: "Do you repair drainage issues too?",
-    answer: "Yes — drainage is often part of a complete foundation repair plan, since it's frequently connected to the underlying cause.",
-  },
-  {
-    question: "Is foundation repair covered by insurance?",
-    answer: "Coverage varies by policy and cause of damage — we recommend checking with your insurance provider. We're happy to provide documentation from our inspection if needed.",
-  },
 ];
 ---
 
@@ -68,6 +51,5 @@ const faqItems = [
   </section>
 
   <TrustBadgesCompact badges={badges} />
-  <Faq items={faqItems} />
   <CtaBanner heading="Ready for a free inspection?" />
 </Layout>

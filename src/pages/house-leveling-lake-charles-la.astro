@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
 import ProcessSteps from "../components/ProcessSteps.astro";
 import TrustBadgesCompact from "../components/TrustBadgesCompact.astro";
-import Faq from "../components/Faq.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 import { routes, asset } from "../lib/site";
 
@@ -16,24 +15,8 @@ const steps = [
 
 const badges = [
   { title: "Free Estimates", description: "No obligation" },
-  { title: "Workers' Comp", description: "Fully covered crews" },
   { title: "Air Bag Lifting", description: "Gentle and controlled" },
   { title: "Warranty", description: "On all work" },
-];
-
-const faqItems = [
-  {
-    question: "Is it safe to stay in the house during leveling?",
-    answer: "In most cases, yes — we'll walk you through what to expect for your specific home during the free inspection.",
-  },
-  {
-    question: "How long does a house leveling project take?",
-    answer: "Timelines vary depending on the extent of settling and site conditions — your free inspection includes a specific estimate for your home.",
-  },
-  {
-    question: "Will leveling fix my cracked walls too?",
-    answer: "Leveling addresses the underlying settling that often causes cracks. We'll discuss what to expect for your specific damage during the inspection.",
-  },
 ];
 ---
 
@@ -68,6 +51,5 @@ const faqItems = [
   </section>
 
   <TrustBadgesCompact badges={badges} />
-  <Faq items={faqItems} />
   <CtaBanner heading="Ready for a free inspection?" />
 </Layout>
