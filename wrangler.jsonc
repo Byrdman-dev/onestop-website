@@ -1,5 +1,8 @@
-   {
-     "name": "www",
-     "compatibility_date": "2026-10-23",
-     "assets": { "directory": "./dist" }
-   }
+{
+  "name": "www",
+  "compatibility_date": "2026-10-23",
+  "assets": { "directory": "./dist" },
+  "routes": [
+    { "pattern": "onestopleveling.com", "custom_domain": true }
+  ]
+}
