@@ -4,6 +4,27 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Gallery expanded with 8 more before/after projects (2026-11-17)
+
+Not an options-round decision — Davis supplied a new source folder (`F:\One stop Con photos`, outside this repo) containing photos he'd already curated/exported for the site, and asked to add more professionally-suitable projects to `/gallery` while leaving the homepage's 3 main teaser projects untouched.
+
+**Source reviewed:** `_Website_Assets/before-after/` — 13 pre-made before/after pairs (plus side-by-side composites, unused). All 13 checked for EXIF/GPS (none found on any file — already clean) and visually screened for house numbers, street signs, plates, and identifiable faces per the privacy rules.
+
+**Findings during review:**
+- Pairs **01** (blue house siding) and **02** (tan house leveling) are the exact photos already live as the homepage's 3 main teaser projects — left untouched, not duplicated into the gallery.
+- Pair **04** (mobile home deck/ramp/porch roof) is the same project already in the gallery as "Mobile Home Deck, Ramp & Porch Roof" — skipped to avoid a duplicate.
+- Pair **05** (raised house, new piers & deck): "before" photo shows a clearly identifiable man (bald, glasses, pink shirt) in the foreground. Flagged to Davis; he said not to worry about cropping him out — used as-is.
+- Pair **07** (mobile home deck & ramp): "after" photo has a house-number sign ("6871") plainly mounted on the deck post. Flagged to Davis; **excluded** from the gallery per his instruction.
+- Pair **08** (house refinished white): Davis caught that the before/after don't belong together — they're different houses. Confirmed by comparing the "after" photo against the poster frame of `_Website_Assets/videos/01-house-leveling-before-after.mp4`: the "after" in 08 is actually a later, repainted-white shot of the same tan-house-leveling project already live on the homepage (same porch railing, same brick steps, same box on the porch), not a distinct project. **Excluded** entirely — using it would have shown the tan house twice under two different identities, paired with an unrelated "before."
+
+**8 projects added to `/gallery`** (clean, no flags): Gray House Sill Replacement (03), Raised House, New Piers & Deck (05), White House Jacked & New Sill (06), Porch-Side Sill Rebuild (09), Porch & Deck Rebuild (10), Blue House Jacked & New Sill (11), Blue House Rotted Sill Replaced (12), Yellow House Wall Rebuild (13). Categories assigned by content (mostly Foundation Repair; two Additional Work; one House Lifting).
+
+**Dates:** Davis's source folder only had his own filename labels, not confirmed months/years, and inventing a date would violate the "never invent facts" content rule — so these 8 new cards omit the date line entirely (existing 5 cards keep their confirmed dates unchanged). `GalleryCard.astro`'s `date` prop was made optional (`date?: string`) to support this.
+
+**Assets produced:** 16 new files in `assets/derived/before-after/` (mirrored into `public/assets/derived/before-after/`), resized to 1400px wide (matching the existing derived-asset convention) and re-saved via Pillow (strips any incidental metadata), named after Davis's own source filenames for traceability, e.g. `03-gray-house-sill-replacement-{before,after}.jpg`.
+
+**Not touched:** `index.astro`'s hero and "More Recent Projects" teaser (the 3 main homepage projects) — Davis asked explicitly to keep these intact.
+
 ## Workers' comp mentions, FAQ section, and footer contact form removed (2026-10-29)
 
 Not an options-round decision — a direct content-removal request from Davis, applied site-wide.

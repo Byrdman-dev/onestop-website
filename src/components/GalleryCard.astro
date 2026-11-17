@@ -4,7 +4,7 @@ import BeforeAfterSlider from "./BeforeAfterSlider.astro";
 interface Props {
   category: string;
   title: string;
-  date: string;
+  date?: string;
   beforeSrc: string;
   afterSrc: string;
   href?: string;
@@ -24,6 +24,6 @@ const Footer = href ? "a" : "div";
   <Footer href={href} class={`block p-4 ${href ? "hover:bg-steel-50 transition" : ""}`}>
     <p class="text-[10px] font-bold uppercase tracking-widest text-brand-red mb-1">{category}</p>
     <p class="font-heading font-bold text-brand-black">{title}</p>
-    <p class="text-xs text-steel-600">{date}</p>
+    {date && <p class="text-xs text-steel-600">{date}</p>}
   </Footer>
 </div>
