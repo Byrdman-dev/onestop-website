@@ -4,6 +4,12 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## BBB Profile link removed from footer (2026-11-17)
+
+Not an options-round decision — Davis asked to remove it. `Footer.astro`'s "BBB Profile ↗" link (which only ever pointed to `href="#"`, a placeholder — no real BBB URL was ever supplied) is gone. The archived `Footer.with-contact-form.astro` backup still has it, untouched since that file isn't imported anywhere.
+
+---
+
 ## Owner bio added to /about (2026-11-17)
 
 Not an options-round decision — Davis supplied confirmed facts to replace a placeholder. Owner is **Lennard Gade**, with **25+ years of experience**. Explicitly told not to worry about the license/registration number yet.
