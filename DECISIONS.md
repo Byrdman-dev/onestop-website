@@ -4,6 +4,14 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Tan House Full Leveling "after" photo swapped for the real finished state (2026-11-17)
+
+Not an options-round decision — follow-up correction from Davis after the gallery-expansion review above. Davis pointed out that the `08-house-refinished-white-after.jpg` photo (flagged and excluded above for being paired with an unrelated "before") is in fact the true final state of the Tan House Full Leveling project — the house was later painted white — and asked to use it as that project's real "after" photo everywhere, not the mid-construction tan/deck-building shot that was there before.
+
+**What changed:** `assets/derived/before-after/02-tan-house-leveling-after.jpg` (and its `public/` mirror) overwritten with a resized (1400px wide), re-saved (metadata-stripped) copy of `08-house-refinished-white-after.jpg`. No `.astro` files needed edits — all 8 places that reference this one file path picked up the new photo automatically: homepage hero slider, homepage "More Recent Projects" teaser card, `/gallery` card, `/about` page photo, the house-leveling service page, and the 3 video-card placeholder thumbnails (`index.astro`).
+
+**Not changed:** the "Tan House Full Leveling" title/label stays as-is — Davis didn't ask to rename it, even though the after-photo now shows a painted-white house.
+
 ## Gallery expanded with 8 more before/after projects (2026-11-17)
 
 Not an options-round decision — Davis supplied a new source folder (`F:\One stop Con photos`, outside this repo) containing photos he'd already curated/exported for the site, and asked to add more professionally-suitable projects to `/gallery` while leaving the homepage's 3 main teaser projects untouched.
