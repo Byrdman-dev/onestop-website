@@ -4,6 +4,16 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Owner bio added to /about (2026-11-17)
+
+Not an options-round decision — Davis supplied confirmed facts to replace a placeholder. Owner is **Lennard Gade**, with **25+ years of experience**. Explicitly told not to worry about the license/registration number yet.
+
+**Changed:** `about.astro`'s "Placeholder: owner bio, exact years of experience, and license/registration number..." box replaced with a real paragraph naming the owner and years of experience. The license/registration number placeholder note stays (not yet confirmed).
+
+**Also updated:** `CLAUDE.md`'s "Owner" line (was "~30 years, unconfirmed") and the "owner must confirm/supply" list in both `CLAUDE.md` and this file's Step 0 findings — years of experience and owner name are no longer open items; license/registration number remains the only owner-bio-related item still pending.
+
+---
+
 ## "Watch Our Work" video section goes live with 2 of 3 real clips (2026-11-17)
 
 Davis supplied 3 MP4s (`F:\One stop Con photos\_Website_Assets\videos\`) and asked to wire real playback into the homepage's `VideoGallery` section, which until now was a hard-coded placeholder (`CLAUDE.md` said: "Videos are embedded from an external host later — visual placeholders only, never commit large video files"). **Flagged this conflict to Davis before proceeding** — he confirmed self-hosting now, overriding that rule for these 3 files specifically.
@@ -504,7 +514,7 @@ Not a design decision — a findings/intake record. See full report delivered in
 
 ### Owner must confirm/supply (running list)
 
-- Exact years of experience (site currently says "28+", Davis says ~30 — unconfirmed)
+- ~~Exact years of experience~~ — confirmed 2026-11-17: owner is Lennard Gade, 25+ years of experience.
 - Contractor license/registration number
 - BBB rating (current site references a BBB profile — confirm rating/standing)
 - Insurance (workers' comp) and warranty terms — exact wording/scope

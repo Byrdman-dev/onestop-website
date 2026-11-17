@@ -6,7 +6,7 @@ Persistent rules for this project. Follow these across every session.
 
 Client: One Stop Construction And Leveling LLC, Lake Charles, LA.
 Services: house leveling, house lifting, foundation repair.
-Owner: ~30 years of experience (current live site says "28+ years" — **unconfirmed, do not state a number without owner confirmation**).
+Owner: Lennard Gade, 25+ years of experience (confirmed by Davis 2026-11-17 — supersedes the old site's unconfirmed "28+ years").
 
 Selling points carried over from the current site (verify before reusing): free estimates, free foundation inspections, workers' comp coverage, gentle air bag lifting, warranty on all work, BBB profile.
 
@@ -57,7 +57,7 @@ Order of decisions after the header banner (Step 1):
 ## Content rules
 
 - Never invent facts, statistics, testimonials, reviews, license numbers, certifications, or years. Use clearly marked placeholders.
-- Keep a running "owner must confirm/supply" list (see DECISIONS.md) including: exact years of experience, contractor license/registration number, BBB rating, insurance and warranty terms, photo releases from homeowners, a contact email, and the original (source/vector) logo file.
+- Keep a running "owner must confirm/supply" list (see DECISIONS.md) including: contractor license/registration number, BBB rating, insurance and warranty terms, photo releases from homeowners, a contact email, and the original (source/vector) logo file. (Owner name and years of experience confirmed 2026-11-17 — see Owner line above.)
 - Keep these exact page slugs/names so SEO isn't lost: `/house-leveling-lake-charles-la`, `/house-lifting-lake-charles-la`, `/foundation-repair-lake-charles-la`, `/about`, `/contact`.
 - Design mobile-first and accessible (sufficient contrast, readable text sizes, reduced motion).
 - Videos are embedded from an external host later — visual placeholders only, never commit large video files.
