@@ -1,7 +1,8 @@
 ---
 interface Video {
   title: string;
-  thumbnailSrc: string;
+  thumbnailSrc?: string;
+  videoSrc?: string;
 }
 
 interface Props {
@@ -16,27 +17,40 @@ const { videos } = Astro.props;
     <div class="text-center mb-10">
       <h2 class="font-heading text-2xl sm:text-3xl font-bold mb-3">Watch Our Work</h2>
       <p class="text-steel-200 max-w-xl mx-auto">Short clips from real jobs around Lake Charles.</p>
-      <p class="inline-block mt-4 px-3 py-1 text-xs font-semibold uppercase tracking-wide border border-dashed border-steel-500 text-steel-300 rounded-sm">
-        Section still in progress — real video clips coming soon
-      </p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-steel-500 border border-steel-500">
       {videos.map((video) => (
-        <button class="video-card relative block bg-steel-800 text-left group" data-open-lightbox>
-          <img
-            src={video.thumbnailSrc}
-            alt={`${video.title} video placeholder thumbnail`}
-            class="w-full aspect-video object-cover opacity-90 group-hover:opacity-100 transition"
-          />
-          <span class="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition flex items-center justify-center">
-            <span class="h-12 w-12 rounded-full bg-brand-red flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"></path>
-              </svg>
+        video.videoSrc ? (
+          <button
+            class="video-card relative block bg-steel-800 text-left group"
+            data-open-lightbox
+            data-video-src={video.videoSrc}
+            data-poster-src={video.thumbnailSrc}
+          >
+            <img
+              src={video.thumbnailSrc}
+              alt={`${video.title} video thumbnail`}
+              class="w-full aspect-video object-cover opacity-90 group-hover:opacity-100 transition"
+            />
+            <span class="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition flex items-center justify-center">
+              <span class="h-12 w-12 rounded-full bg-brand-red flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+              </span>
             </span>
-          </span>
-          <span class="block px-4 py-3 text-sm font-semibold">{video.title}</span>
-        </button>
+            <span class="block px-4 py-3 text-sm font-semibold">{video.title}</span>
+          </button>
+        ) : (
+          <div class="relative block bg-steel-800 text-left">
+            <div class="w-full aspect-video flex items-center justify-center bg-steel-800 border border-dashed border-steel-500">
+              <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wide text-steel-300 border border-dashed border-steel-500 rounded-sm">
+                Coming Soon
+              </span>
+            </div>
+            <span class="block px-4 py-3 text-sm font-semibold text-steel-300">{video.title}</span>
+          </div>
+        )
       ))}
     </div>
   </div>
@@ -50,9 +64,12 @@ const { videos } = Astro.props;
     >
       Close ✕
     </button>
-    <div class="aspect-video bg-steel-800 border border-steel-500 flex items-center justify-center text-steel-400 text-sm font-medium">
-      [ Video would play here — embedded from an external host, e.g. YouTube/Vimeo ]
-    </div>
+    <video
+      id="videoLightboxPlayer"
+      class="w-full aspect-video bg-steel-800 border border-steel-500"
+      controls
+      playsinline
+    ></video>
   </div>
 </div>
 
@@ -68,9 +85,32 @@ const { videos } = Astro.props;
 <script>
   const lightbox = document.getElementById("videoLightbox");
   const closeBtn = document.getElementById("videoLightboxClose");
+  const player = document.getElementById("videoLightboxPlayer") as HTMLVideoElement | null;
 
-  document.querySelectorAll("[data-open-lightbox]").forEach((btn) => {
-    btn.addEventListener("click", () => lightbox?.classList.add("open"));
+  document.querySelectorAll<HTMLElement>("[data-open-lightbox]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const videoSrc = btn.dataset.videoSrc;
+      const posterSrc = btn.dataset.posterSrc;
+      if (player && videoSrc) {
+        player.src = videoSrc;
+        if (posterSrc) player.poster = posterSrc;
+        lightbox?.classList.add("open");
+        player.play().catch(() => {});
+      }
+    });
   });
-  closeBtn?.addEventListener("click", () => lightbox?.classList.remove("open"));
+
+  function closeLightbox() {
+    lightbox?.classList.remove("open");
+    if (player) {
+      player.pause();
+      player.removeAttribute("src");
+      player.load();
+    }
+  }
+
+  closeBtn?.addEventListener("click", closeLightbox);
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
 </script>

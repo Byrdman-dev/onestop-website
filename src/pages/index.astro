@@ -12,7 +12,7 @@ const galleryTeaser = [
     title: "Tan House Full Leveling",
     date: "Feb–Apr 2025",
     beforeSrc: asset("assets/derived/before-after/02-tan-house-leveling-before.jpg"),
-    afterSrc: asset("assets/derived/before-after/02-tan-house-leveling-after.jpg"),
+    afterSrc: asset("assets/derived/before-after/08-house-refinished-white-after.jpg"),
   },
   {
     category: "Foundation Repair",
@@ -31,9 +31,17 @@ const galleryTeaser = [
 ];
 
 const videos = [
-  { title: "Full House Leveling", thumbnailSrc: asset("assets/derived/before-after/02-tan-house-leveling-after.jpg") },
-  { title: "Mobile Home Deck Build", thumbnailSrc: asset("assets/derived/before-after/02-tan-house-leveling-after.jpg") },
-  { title: "Cabin Lift & Move", thumbnailSrc: asset("assets/derived/before-after/02-tan-house-leveling-after.jpg") },
+  {
+    title: "Full House Leveling",
+    thumbnailSrc: asset("assets/videos/01-house-leveling-before-after-poster.jpg"),
+    videoSrc: asset("assets/videos/01-house-leveling-before-after.mp4"),
+  },
+  {
+    title: "House Relocation",
+    thumbnailSrc: asset("assets/videos/02-house-relocation-poster.jpg"),
+    videoSrc: asset("assets/videos/02-house-relocation.mp4"),
+  },
+  { title: "More Clips Coming Soon" },
 ];
 ---
 
@@ -50,7 +58,7 @@ const videos = [
       <BeforeAfterSlider
         beforeSrc={asset("assets/derived/before-after/02-tan-house-leveling-before.jpg")}
         beforeAlt="Before: house settled low to the ground"
-        afterSrc={asset("assets/derived/before-after/02-tan-house-leveling-after.jpg")}
+        afterSrc={asset("assets/derived/before-after/08-house-refinished-white-after.jpg")}
         afterAlt="After: house raised and leveled on new piers"
       />
     </div>

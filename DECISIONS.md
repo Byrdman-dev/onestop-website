@@ -4,6 +4,25 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## "Watch Our Work" video section goes live with 2 of 3 real clips (2026-11-17)
+
+Davis supplied 3 MP4s (`F:\One stop Con photos\_Website_Assets\videos\`) and asked to wire real playback into the homepage's `VideoGallery` section, which until now was a hard-coded placeholder (`CLAUDE.md` said: "Videos are embedded from an external host later — visual placeholders only, never commit large video files"). **Flagged this conflict to Davis before proceeding** — he confirmed self-hosting now, overriding that rule for these 3 files specifically.
+
+**Technical check before embedding (ffprobe, read-only on originals):** all 3 files are H.264 High profile, yuv420p, faststart, well under Cloudflare's 25 MiB static-asset limit, no rotation metadata, no audio track (fine — allowed). One file (`05-finished-deck-walkthrough.mp4`) was tagged with mismatched HDR color metadata (`bt2020`/HLG `arib-std-b67` on an 8-bit stream) that could render inconsistently across browsers; converted a corrected copy with ffmpeg (the generic `-color_primaries`/`-color_trc` output options and the `h264_metadata` bitstream filter both silently failed to rewrite the tags in this ffmpeg build — only the `colorspace` video filter actually worked; verified the fix by re-probing the output, not by trusting a clean exit code).
+
+**Privacy screening (required before using any video publicly, same standard as photos):**
+- `01-house-leveling-before-after.mp4` — sampled frames across the full timeline. Same tan-house project already live on the site, same house number already approved implicitly by its current presence on the homepage. Crew only, no new concerns. **Cleared.**
+- `02-house-relocation.mp4` — sampled frames across the full timeline. Multiple crew members visible (presumably Davis's own guys, consistent with normal contractor promo footage), no readable plates. **Cleared.**
+- `05-finished-deck-walkthrough.mp4` — sampled frames across the full timeline. Shows what appear to be family/bystanders up close in multiple shots, and a clearly readable license plate on a truck tailgate in the poster frame specifically (plate number not reproduced here). This isn't a one-frame problem fixable by picking a different thumbnail — it's present in the actual playback content. **Flagged to Davis; he chose to leave it out of the site entirely for now** rather than use it as-is or have it re-edited. No file from this video (poster or clip) was used anywhere.
+
+**What shipped:** `01` and `02` are real, clickable, self-hosted MP4s with working playback (native `<video>` in a lightbox). The 3rd "Watch Our Work" grid slot stays a "Coming Soon" placeholder (no image at all, to stay clear of the excluded content) so the 3-column grid stays visually balanced. Card titles corrected to match actual content ("House Relocation", not the previous generic "Mobile Home Deck Build" placeholder text, which didn't match either file).
+
+**Assets added:** `public/assets/videos/01-house-leveling-before-after.mp4` + poster, `public/assets/videos/02-house-relocation.mp4` + poster (originals untouched in the source folder; these are the exact same bitstreams, re-confirmed clean of GPS/location container tags). `05`'s web-safe color-corrected copy exists at `F:\One stop Con photos\_Website_Assets\videos\web-safe\05-finished-deck-walkthrough.mp4` but was never copied into the repo.
+
+**Component changes:** `VideoGallery.astro`'s `Video` type gained an optional `videoSrc`; cards without one render as a non-interactive placeholder instead of a clickable lightbox trigger. The lightbox itself now holds a real `<video>` element (previously a static "video would play here" message) wired to load/play on open and release its `src` on close.
+
+---
+
 ## Derived-asset folder duplication cleaned up; mislabeled file renamed (2026-11-17)
 
 Follow-up cleanup after Davis asked where the new photos were stored and noticed the `08-` photo wasn't visible under its own name. Two issues, both fixed:
