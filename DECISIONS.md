@@ -4,6 +4,13 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 ---
 
+## Derived-asset folder duplication cleaned up; mislabeled file renamed (2026-11-17)
+
+Follow-up cleanup after Davis asked where the new photos were stored and noticed the `08-` photo wasn't visible under its own name. Two issues, both fixed:
+
+1. **Duplicate folder removed.** There had been two copies of every derived before/after photo: a root-level `assets/derived/` and `public/assets/derived/`. Only `public/assets/derived/` is ever actually read (confirmed by grep — no `.astro`/`.ts` file imports from the root copy; `asset()` in `src/lib/site.ts` always resolves against `public/`). The root `assets/derived/` folder (26 before-after images + `logo-roofline.png`) was deleted; `public/assets/derived/` is now the single canonical location. `CLAUDE.md`'s asset-rules section updated to point at `public/assets/derived/` directly instead of the ambiguous `assets/derived/` example.
+2. **Mislabeled file renamed.** The previous entry (above) had overwritten `02-tan-house-leveling-after.jpg` in place with the white-house photo's content, so the file's name no longer matched what it actually showed, and there was no file anywhere named after the real source (`08-house-refinished-white-after.jpg`). Renamed it to `08-house-refinished-white-after.jpg` and updated all 8 references (`index.astro` ×5, `gallery.astro`, `about.astro`, `house-leveling-lake-charles-la.astro`) to the new filename. The paired "before" photo keeps its original name (`02-tan-house-leveling-before.jpg`) — the mismatched numeric prefixes between the before and after file are intentional and accurate: the before photo is from the original tan-house project folder, the after photo is from the separately-exported asset Davis confirmed is that same house's real final state.
+
 ## Tan House Full Leveling "after" photo swapped for the real finished state (2026-11-17)
 
 Not an options-round decision — follow-up correction from Davis after the gallery-expansion review above. Davis pointed out that the `08-house-refinished-white-after.jpg` photo (flagged and excluded above for being paired with an unrelated "before") is in fact the true final state of the Tan House Full Leveling project — the house was later painted white — and asked to use it as that project's real "after" photo everywhere, not the mid-construction tan/deck-building shot that was there before.

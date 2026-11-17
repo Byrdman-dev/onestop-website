@@ -74,7 +74,7 @@ Site structure: `src/layouts/Layout.astro` (shared `<head>` + Header/Footer), `s
 
 ## Privacy / asset rules
 
-- `logo/` and `before-after-pics/` hold originals. **Never modify or overwrite originals.** Write all derived files to a separate folder, e.g. `assets/derived/`.
+- `logo/` and `before-after-pics/` hold originals. **Never modify or overwrite originals.** Write all derived files to `public/assets/derived/` — this is the single canonical location (Astro serves straight from `public/`; there is no separate root-level `assets/derived/` mirror to keep in sync).
 - Every photo must be checked for EXIF metadata, especially GPS, before any derived/web copy is made. Strip all metadata in derived copies. Never publish an image that still carries location data.
 - Flag (don't silently use) any photo showing: house numbers, street signs, license plates, or identifiable people's faces. Get explicit sign-off from Davis/owner before using such a photo, even cropped.
 
