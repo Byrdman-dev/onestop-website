@@ -8,7 +8,7 @@ One entry per design decision: what was decided, options considered, and why. Ne
 
 Not an options-round decision — Davis supplied confirmed facts to replace a placeholder. Owner is **Lennard Gade**, with **25+ years of experience**. Explicitly told not to worry about the license/registration number yet.
 
-**Changed:** `about.astro`'s "Placeholder: owner bio, exact years of experience, and license/registration number..." box replaced with a real paragraph naming the owner and years of experience. The license/registration number placeholder note stays (not yet confirmed).
+**Changed:** `about.astro`'s "Placeholder: owner bio, exact years of experience, and license/registration number..." box replaced with a real paragraph naming the owner and years of experience. Davis then asked to drop the placeholder box entirely rather than keep a visible "license number pending" note — removed. The license/registration number is still tracked as an open owner-confirm item (see list below), just not called out on the live page anymore.
 
 **Also updated:** `CLAUDE.md`'s "Owner" line (was "~30 years, unconfirmed") and the "owner must confirm/supply" list in both `CLAUDE.md` and this file's Step 0 findings — years of experience and owner name are no longer open items; license/registration number remains the only owner-bio-related item still pending.
 
